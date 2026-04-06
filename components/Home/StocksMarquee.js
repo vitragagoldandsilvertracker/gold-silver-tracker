@@ -124,19 +124,19 @@ const StocksMarquee = () => {
     script.async = true;
     script.innerHTML = JSON.stringify({
       symbols: [
-        { description: "", proName: "NASDAQ:NIKL" },   // Sprott Nickel Miners ETF
-        { description: "", proName: "NYSE:VALE" },      // Vale - largest nickel producer
-        { description: "", proName: "NYSE:BHP" },       // BHP Group - nickel mining
-        { description: "", proName: "NYSE:RIO" },       // Rio Tinto - nickel mining
-        { description: "", proName: "ASX:NIC" },        // Nickel Industries Ltd
-        { description: "", proName: "ASX:IGO" },        // IGO Limited - nickel producer
-        { description: "", proName: "TSX:NKLA" },       // Nikola / nickel related
-        { description: "", proName: "OTC:GLCNF" },      // Glencore - nickel producer
-        { description: "", proName: "NYSE:TECK" },      // Teck Resources - nickel mining
-        { description: "", proName: "NYSE:FCX" },       // Freeport-McMoRan - base metals
-        { description: "", proName: "NYSE:AA" },        // Alcoa - base metals
-        { description: "", proName: "NYSE:NEM" },       // Newmont - mining
-        { description: "", proName: "LSE:ANTO" },       // Antofagasta - mining
+        { description: "", proName: "COMEX:GC1!" },    // Gold Futures
+        { description: "", proName: "COMEX:SI1!" },    // Silver Futures
+        { description: "", proName: "NYSE:GLD" },      // SPDR Gold Shares ETF
+        { description: "", proName: "NYSE:SLV" },      // iShares Silver Trust ETF
+        { description: "", proName: "NYSE:NEM" },      // Newmont - gold mining
+        { description: "", proName: "NYSE:GOLD" },     // Barrick Gold
+        { description: "", proName: "NYSE:AEM" },      // Agnico Eagle Mines
+        { description: "", proName: "NYSE:WPM" },      // Wheaton Precious Metals
+        { description: "", proName: "NYSE:FNV" },      // Franco-Nevada
+        { description: "", proName: "NYSE:KGC" },      // Kinross Gold
+        { description: "", proName: "NYSE:AG" },       // First Majestic Silver
+        { description: "", proName: "NYSE:PAAS" },     // Pan American Silver
+        { description: "", proName: "TSX:ABX" },       // Barrick Gold (TSX)
       ],
       showSymbolLogo: true,
       isTransparent: false,

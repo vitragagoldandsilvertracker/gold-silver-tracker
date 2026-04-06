@@ -63,7 +63,7 @@ const DirectHomeLithiumPrice = () => {
             source: "Fallback"
           },
           {
-            metal_name: "Nickel",
+            metal_name: "Gold",
             price: 8.51,
             price_change: -0.16,
             price_change_percent: -2.27,

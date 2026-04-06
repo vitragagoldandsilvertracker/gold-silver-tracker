@@ -60,7 +60,7 @@ const Hero = () => {
           <span
             className="text-accent"
           >
-            Nickel market news, price and analysis
+            Gold & Silver market news, price and analysis
           </span>
         </motion.h1>
 

@@ -29,7 +29,7 @@ const home = () => {
         <div className="w-full lg:w-[24%] flex flex-col space-y-6">
           <div>
             <h1 className="text-[21px] cambay font-bold mb-3 border-b border-black/10 pb-1">
-              Nickel Price Chart
+              Gold & Silver Price Chart
             </h1>
             <TVLithiumCFD />
           </div>
@@ -65,7 +65,7 @@ const home = () => {
         <div className="w-full lg:w-[24%] flex flex-col space-y-6">
           <div>
             <h1 className="text-[21px] cambay font-bold mb-3 border-b border-black/10 pb-1">
-              Nickel Market Data
+              Gold & Silver Market Data
             </h1>
             <TVLithium />
           </div>

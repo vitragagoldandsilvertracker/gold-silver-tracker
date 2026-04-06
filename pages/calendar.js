@@ -8,9 +8,9 @@ const calendar = () => {
   return (
     <div>
       <SEO
-        title="Nickel Market Calendar - Key Events & Industry Updates"
-        description="Stay informed with the latest Nickel market events in 2025. Track key industry conferences, financial updates, and supply-demand shifts with our comprehensive market calendar."
-        keywords="Nickel market calendar 2025, Nickel and Nickel Alloys events, Nickel industry conferences, market updates, financial events, supply and demand trends"
+        title="Gold & Silver Market Calendar - Key Events & Industry Updates"
+        description="Stay informed with the latest Gold & Silver market events in 2025. Track key industry conferences, financial updates, and supply-demand shifts with our comprehensive market calendar."
+        keywords="Gold & Silver market calendar 2025, Gold & Silver events, Gold & Silver industry conferences, market updates, financial events, supply and demand trends"
         canonicalUrl="https://musical-panda-75f15d.netlify.app/calendar"
       />
       <Navbar />

@@ -72,9 +72,9 @@ const Videos = () => {
   return (
     <div>
       <SEO
-        title="Nickel Video Hub - Market Updates, Education & Insights"
-        description="Enhance your Nickel market knowledge through our educational video content. From market fundamentals to advanced trading strategies, explore our comprehensive library of featured videos, company insights, podcasts, and educational resources."
-        keywords="Nickel videos, market updates, Nickel education, trading strategies, company insights, Nickel podcasts, investment knowledge, Nickel and Nickel Alloys"
+        title="Gold & Silver Video Hub - Market Updates, Education & Insights"
+        description="Enhance your Gold & Silver market knowledge through our educational video content. From market fundamentals to advanced trading strategies, explore our comprehensive library of featured videos, company insights, podcasts, and educational resources."
+        keywords="Gold & Silver videos, market updates, Gold & Silver education, trading strategies, company insights, Gold & Silver podcasts, investment knowledge, Gold & Silver"
         canonicalUrl="https://musical-panda-75f15d.netlify.app/videos"
       />
       <Navbar />

@@ -17,9 +17,9 @@ const Data = () => {
   return (
     <div>
       <SEO
-        title="Nickel Market Data - Price Trends, Supply & Demand Insights"
-        description="Access comprehensive Nickel market data, including price trends, supply and demand metrics, and industry analysis. Our detailed datasets provide the insights you need for informed decision-making in the Nickel market."
-        keywords="Nickel market data, price trends, Nickel supply and demand, industry analysis, Nickel research, market insights, Nickel and Nickel Alloys, data analytics"
+        title="Gold & Silver Market Data - Price Trends, Supply & Demand Insights"
+        description="Access comprehensive Gold & Silver market data, including price trends, supply and demand metrics, and industry analysis. Our detailed datasets provide the insights you need for informed decision-making in the Gold & Silver market."
+        keywords="Gold & Silver market data, price trends, Gold & Silver supply and demand, industry analysis, Gold & Silver research, market insights, Gold & Silver, data analytics"
         canonicalUrl="https://musical-panda-75f15d.netlify.app/data"
       />
       <Navbar />

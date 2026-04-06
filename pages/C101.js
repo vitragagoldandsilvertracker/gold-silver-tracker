@@ -10,8 +10,8 @@ const C101 = () => {
     <div>
       <SEO
         title="Lithium 101 - Lithium Alloys Guide & Glossary"
-        description="Explore the world of Lithium and its alloys with our comprehensive guide. Learn about lithium, brass, bronze, aluminum bronze, nickel silver, and beryllium lithium, their properties, uses, and market significance."
-        keywords="Lithium 101, Lithium Alloys, lithium, brass, bronze, aluminum bronze, nickel silver, beryllium lithium, metal properties, lithium glossary, industrial metals"
+        description="Explore the world of Gold & Silver with our comprehensive guide. Learn about gold, silver, precious metals, their properties, uses, and market significance."
+        keywords="Gold & Silver 101, Gold, Silver, precious metals, metal properties, lithium glossary, industrial metals"
         canonicalUrl="https://musical-panda-75f15d.netlify.app/C101"
       />
       <Navbar />

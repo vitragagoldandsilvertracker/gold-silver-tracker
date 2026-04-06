@@ -16,8 +16,8 @@ const DetailPage = ({ card }) => {
     <div className="relative">
       <SEO
         title={`${card.title} - Lithium Alloys Guide & Glossary`}
-        description="Explore the world of Copper and its alloys with our comprehensive guide. Learn about copper, brass, bronze, aluminum bronze, nickel silver, and beryllium copper, their properties, uses, and market significance."
-        keywords="Lithium 101, Lithium Alloys, copper, brass, bronze, aluminum bronze, nickel silver, beryllium copper, metal properties, copper glossary, industrial metals"
+        description="Explore the world of Copper and its alloys with our comprehensive guide. Learn about gold, silver, precious metals, mining, and investment strategies, their properties, uses, and market significance."
+        keywords="Gold & Silver 101, Gold, Silver, precious metals, mining, investment"
         canonicalUrl={`https://musical-panda-75f15d.netlify.app/copper101/${card.id}`}
       />
       {/* Breadcrumb Component */}

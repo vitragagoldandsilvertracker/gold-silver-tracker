@@ -24,9 +24,9 @@ const home = () => {
   return (
     <div>
       <SEO
-        title="Nickel Tracker - Real-time News, Prices & Analysis"
-        description="Stay ahead with real-time Nickel market news, price updates, and in-depth analysis. Get accurate insights into the nickel market trends."
-        keywords="Nickel prices, Nickel news, Nickel market analysis, Industrial metals, Nickel trading, Nickel updates, Nickel investment, Real-time Nickel updates,investment"
+        title="Gold & Silver Tracker - Real-time News, Prices & Analysis"
+        description="Stay ahead with real-time Gold & Silver market news, price updates, and in-depth analysis. Get accurate insights into the gold and silver market trends."
+        keywords="Gold prices, Silver prices, Gold & Silver news, Gold & Silver market analysis, Precious metals, Gold trading, Silver trading, Gold & Silver updates, Gold & Silver investment, Real-time precious metals updates, investment"
         canonicalUrl="https://musical-panda-75f15d.netlify.app/"
       />
 
@@ -43,7 +43,7 @@ const home = () => {
         <div className="w-full lg:w-[24%] flex flex-col space-y-6">
           <div>
             <h1 className="text-[21px] cambay font-bold mb-3 border-b border-black/10 pb-1">
-              Nickel Price Chart
+              Gold & Silver Price Chart
             </h1>
             <TVLithiumCFD />
           </div>
@@ -77,7 +77,7 @@ const home = () => {
         <div className="w-full lg:w-[24%] flex flex-col space-y-6">
           <div>
             <h1 className="text-[21px] cambay font-bold mb-3 border-b border-black/10 pb-1">
-              Nickel Futures
+              Gold & Silver Futures
             </h1>
             <TVLithium />
           </div>
