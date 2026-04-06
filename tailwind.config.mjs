@@ -9,10 +9,13 @@ export default {
     extend: {
       colors: {
         primary: "#000000",
-        secondary: "#B7B7B7",
-        accent: "#A8956A",         // Nickel - warm silvery-gold, the characteristic tinge of nickel metal
-        "accent-light": "#C4AE85", // Lighter warm silver-gold variant
-        "accent-bright": "#8C7A52", // Deeper, richer nickel tone
+        secondary: "#C0C0C0",       // Silver
+        accent: "#C9A84C",          // Gold - rich warm gold
+        "accent-light": "#E2C97E",  // Light gold
+        "accent-bright": "#A67C2E", // Deep gold
+        silver: "#C0C0C0",          // Pure silver
+        "silver-light": "#E8E8E8",  // Light silver
+        "silver-dark": "#A8A8A8",   // Dark silver
       },
     },
   },
