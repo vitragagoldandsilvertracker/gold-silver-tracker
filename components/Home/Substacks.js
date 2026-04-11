@@ -24,7 +24,7 @@ const Substacks = () => {
 
   // Format date function
   const formatDate = (dateString) => {
-    if (!dateString) return '';
+    if (!dateString) return "";
     try {
       return new Date(dateString).toLocaleDateString("en-US", {
         year: "numeric",
@@ -33,31 +33,33 @@ const Substacks = () => {
       });
     } catch (error) {
       console.warn("Invalid date format:", dateString);
-      return '';
+      return "";
     }
   };
 
   useEffect(() => {
     const fetchSubstacks = async () => {
       try {
-        console.log('Fetching substacks from:', SUBSTACKS);
+        console.log("Fetching substacks from:", SUBSTACKS);
         const response = await fetch(SUBSTACKS);
-        
+
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
-        
+
         const data = await response.json();
-        console.log('Substacks data:', data);
-        
-        const formattedPosts = Array.isArray(data) 
+        console.log("Substacks data:", data);
+
+        const formattedPosts = Array.isArray(data)
           ? data.map((post) => ({
               id: post.id || Math.random().toString(36).substr(2, 9),
               title: formatTitle(post.title) || "Untitled Substack Post",
               url: post.url || "#",
               content: truncateContent(post.content),
               subtitle: post.subtitle || "",
-              image: post.image_url || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM4sEG5g9GFcy4SUxbzWNzUTf1jMISTDZrTw&s",
+              image:
+                post.image_url ||
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM4sEG5g9GFcy4SUxbzWNzUTf1jMISTDZrTw&s",
               date: formatDate(post.date || post.created_at),
             }))
           : [];
@@ -75,15 +77,34 @@ const Substacks = () => {
     fetchSubstacks();
   }, []);
 
-  if (loading) {
+  if (!loading) {
     return (
-      <div>
-        <h2 className="flex items-center text-[19px] md:text-[21px] font-bold cambay border-b border-gray-300 pb-1 mb-3">
-          Gold & Silver Substacks
+      <div className="border border-black/10 rounded-lg pl-2 pt-3 pr-3">
+        <h2 className="flex items-center text-[19px] md:text-[21px] font-bold cambay border-b border-gray-300 pb-2 mb-3">
+          <div className="h-4 w-48 bg-gray-200 rounded animate-pulse" />
         </h2>
-        <div className="flex justify-center items-center h-32">
-          <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-gray-800"></div>
-          <span className="ml-3 text-gray-800 font-semibold">Loading...</span>
+        <div className="space-y-3">
+          {Array.from({ length: 4 }).map((_, index) => (
+            <div
+              key={index}
+              className="flex items-start justify-between space-x-3.5 pb-6 border-b border-gray-100 last:border-b-0 animate-pulse"
+            >
+              <div className="flex flex-col flex-grow gap-2">
+                <div className="h-3 w-14 bg-gray-200 rounded" />
+
+                <div className="h-4 w-4/5 bg-gray-200 rounded mt-1" />
+                <div className="h-4 w-3/5 bg-gray-200 rounded" />
+
+                <div className="h-3 w-full bg-gray-200 rounded mt-1" />
+                <div className="h-3 w-5/6 bg-gray-200 rounded" />
+                <div className="h-3 w-20 bg-gray-200 rounded mt-1" />
+              </div>
+
+              <div className="flex-shrink-0">
+                <div className="w-[80px] h-[75px] bg-gray-200 rounded-md" />
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     );
@@ -116,7 +137,7 @@ const Substacks = () => {
   }
 
   return (
-    <div>
+    <div className="border border-black/10 rounded-lg pl-2 pt-3 pr-3">
       <h2 className="flex items-center text-[19px] md:text-[21px] font-bold cambay border-b border-gray-300 pb-1 mb-3">
         Gold & Silver Substacks
       </h2>
@@ -129,33 +150,36 @@ const Substacks = () => {
             className="flex items-start justify-between space-x-4 pb-4 cursor-pointer group border-b border-gray-100 last:border-b-0"
           >
             <div className="flex flex-col flex-grow">
-              <p className="text-xs font-semibold text-accent mb-1">
-                Substack
-              </p>
-              
+              <p className="text-xs font-semibold text-accent mb-1">Substack</p>
+
               <h3 className="text-md font-bold text-gray-800 mt-1 group-hover:text-accent transition-colors">
                 {post.title}
               </h3>
-              
+
               {post.content && (
                 <p className="text-sm text-gray-600 mt-1 line-clamp-2">
                   {post.content}
                 </p>
               )}
-              
+
               {post.date && (
                 <span className="text-xs text-gray-500 mt-2">{post.date}</span>
               )}
             </div>
-            
+
             <div className="flex-shrink-0">
               <div className="w-[80px] h-[75px] overflow-hidden rounded-md">
                 <img
                   src={post.image}
-                  alt={post.title ? post.title.substring(0, 10) + "..." : "Substack post"}
+                  alt={
+                    post.title
+                      ? post.title.substring(0, 10) + "..."
+                      : "Substack post"
+                  }
                   className="object-cover w-full h-full group-hover:scale-105 transition-transform"
                   onError={(e) => {
-                    e.target.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM4sEG5g9GFcy4SUxbzWNzUTf1jMISTDZrTw&s";
+                    e.target.src =
+                      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM4sEG5g9GFcy4SUxbzWNzUTf1jMISTDZrTw&s";
                   }}
                 />
               </div>

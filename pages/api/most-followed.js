@@ -64,6 +64,8 @@ export default async function handler(req, res) {
       global_market_leaders: stocks.filter(stock => stock.stock_type === 'global_market_leaders').slice(0, 10)
     };
 
+    // console.log(groupedStocks)
+
     res.status(200).json({
       success: true,
       data: groupedStocks,

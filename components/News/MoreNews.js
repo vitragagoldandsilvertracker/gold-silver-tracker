@@ -92,16 +92,16 @@ const MoreNews = () => {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        console.log('Fetching more news from:', STOCK_NEWS);
+        console.log("Fetching more news from:", STOCK_NEWS);
         const response = await fetch(STOCK_NEWS);
-        
+
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
-        
+
         const data = await response.json();
-        console.log('More news data:', data);
-        
+        console.log("More news data:", data);
+
         if (!data || data.length === 0) {
           throw new Error("No news available");
         }
@@ -117,7 +117,7 @@ const MoreNews = () => {
         setNews(processedData);
         setLoading(false);
       } catch (err) {
-        console.error('Error fetching more news:', err);
+        console.error("Error fetching more news:", err);
         setError(err.message);
         setLoading(false);
       }
@@ -187,7 +187,7 @@ const MoreNews = () => {
   }
 
   return (
-    <div className="px-3 md:px-10 lg:px-16 py-12 md:py-24 bg-secondary/10 mt-10">
+    <div className=" border border-black/10 rounded-lg pl-2 pt-3 pr-3 px-3 md:px-10 lg:px-12 py-12 md:py-24 bg-secondary/10 mt-10">
       <h2 className="text-[19px] md:text-[21px] font-bold cambay border-b border-gray-300 pb-2 mb-6">
         More News
       </h2>
@@ -208,18 +208,16 @@ const MoreNews = () => {
                 </span>
               </div>
             )}
-            
+
             <h3 className="text-md font-bold text-gray-800 group-hover:text-accent transition-colors leading-tight">
               {item.title}
             </h3>
-            
+
             {/* Company Name */}
             {item.company_name && (
-              <p className="text-xs text-gray-600">
-                {item.company_name}
-              </p>
+              <p className="text-xs text-gray-600">{item.company_name}</p>
             )}
-            
+
             <span className="text-xs text-gray-500">
               {formatDate(item.date)}
             </span>

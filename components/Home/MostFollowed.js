@@ -230,11 +230,11 @@ const MostFollowed = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(MOST_FOLLOWED);
-        if (!response.ok) {
+        const response = await axios.get(MOST_FOLLOWED);
+        if (!response.data.success) {
           throw new Error("Failed to fetch data");
         }
-        const data = await response.json();
+        const data = await response.data.data.most_watched;
         // Ensure data is an array before calling slice
         const dataArray = Array.isArray(data) ? data : [];
         setStockData(dataArray.slice(0, 10)); // Limit to 10 stocks
@@ -252,7 +252,7 @@ const MostFollowed = () => {
   const checkSubpageExists = async (stockTicker) => {
     try {
       const response = await axios.get(
-        `${LITHIUM_STOCK_DETAIL}?stock_ticker=${stockTicker}`
+        `${LITHIUM_STOCK_DETAIL}?stock_ticker=${stockTicker}`,
       );
       return response.data.exists ?? true;
     } catch (error) {
@@ -260,6 +260,35 @@ const MostFollowed = () => {
       return false;
     }
   };
+
+  if (loading) {
+    return (
+      <div className="w-full border border-black/10 rounded-lg pl-2 pt-1 pr-3 pb-5">
+        <table className="w-full text-left text-sm font-sans">
+          <tbody>
+            {Array.from({ length: 10 }).map((_, index) => (
+              <tr
+                key={index}
+                className="border-b border-gray-200 animate-pulse"
+              >
+                <td className="py-3">
+                  <div className="h-4 w-16 bg-zinc-200 rounded mb-1" />
+                  <div className="h-3 w-28 bg-zinc-200 rounded" />
+                </td>
+                <td className="py-2 text-right">
+                  <div className="h-4 w-14 bg-zinc-200 rounded mb-1 ml-auto" />
+                  <div className="h-3 w-10 bg-zinc-200 rounded ml-auto" />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <div className="mt-4 text-left">
+          <div className="h-4 w-20 bg-zinc-200 rounded animate-pulse" />
+        </div>
+      </div>
+    );
+  }
 
   const handleStockClick = async (stockTicker) => {
     setErrorMessage("");
@@ -279,7 +308,7 @@ const MostFollowed = () => {
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full border border-black/10 rounded-lg pl-2 pt-1 pr-3 pb-3 ">
       {isModalOpen && (
         <div
           className="fixed inset-0 flex items-center justify-center bg-black/50 z-50 transition-colors"
@@ -309,7 +338,7 @@ const MostFollowed = () => {
             {stockData
               .sort(
                 (a, b) =>
-                  (b.intraday_percentage || 0) - (a.intraday_percentage || 0)
+                  (b.intraday_percentage || 0) - (a.intraday_percentage || 0),
               ) // Sort by intraday percentage
               .map((stock) => (
                 <tr
@@ -326,7 +355,9 @@ const MostFollowed = () => {
                     <div className="text-gray-500">{stock.name || "N/A"}</div>
                   </td>
                   <td className="py-2 text-right">
-                    <div>${parseFloat(stock.current_price || 0).toFixed(2)}</div>
+                    <div>
+                      ${parseFloat(stock.current_price || 0).toFixed(2)}
+                    </div>
                     <div
                       className={`${
                         parseFloat(stock.intraday_percentage || 0) < 0

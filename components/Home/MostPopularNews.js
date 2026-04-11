@@ -13,14 +13,14 @@ const MostPopularNews = () => {
       try {
         setLoading(true);
         const response = await fetch(STOCK_NEWS);
-        
+
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
-        
+
         const data = await response.json();
-        console.log('Most Popular News data:', data);
-        
+        console.log("Most Popular News data:", data);
+
         // Slice to get news starting from 6th item and limit to 8 items
         setNews(Array.isArray(data) ? data.slice(10, 18) : []);
         setLoading(false);
@@ -37,11 +37,28 @@ const MostPopularNews = () => {
 
   if (loading) {
     return (
-      <div className="mb-14 md:mb-10">
+      <div className="mb-14 md:mb-10 border border-black/10 rounded-lg pl-2 pt-3 pr-3">
         <h2 className="text-[21px] font-bold cambay text-black1/80 border-b border-gray-300 pb-2 mb-4">
           Most Popular
-        </h2>
-        <div className="text-center py-8">Loading most popular news...</div>
+        </h2>{" "}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-5">
+          {Array.from({ length: 8 }).map((_, index) => (
+            <div
+              key={index}
+              className="flex items-center w-full border-b border-gray-300 pb-7 animate-pulse"
+            >
+              <div className="flex flex-col items-center justify-center mr-4">
+                <div className="h-8 w-6 bg-zinc-200 rounded" />
+              </div>
+              <div className="flex-1 flex flex-col gap-2">
+                <div className="h-5 w-14 bg-zinc-200 rounded-sm" />
+                <div className="h-4 w-full bg-zinc-200 rounded" />
+                <div className="h-4 w-4/5 bg-zinc-200 rounded" />
+                <div className="h-3 w-32 bg-zinc-200 rounded" />
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     );
   }
@@ -73,7 +90,7 @@ const MostPopularNews = () => {
   }
 
   return (
-    <div className="mb-14 md:mb-10">
+    <div className="mb-14 md:mb-10 border border-black/10 rounded-lg pl-2 pt-3 pr-3 ">
       <h2 className="text-[21px] font-bold cambay text-black1/80 border-b border-gray-300 pb-2 mb-4">
         Most Popular
       </h2>

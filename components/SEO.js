@@ -23,6 +23,7 @@ const SEO = ({ title, description, keywords, canonicalUrl }) => {
         rel="canonical"
         href={canonicalUrl || "https://musical-panda-75f15d.netlify.app/"}
       />
+      <link rel="icon" href="/favicon.ico" />{" "}
       <script type="application/ld+json">
         {JSON.stringify({
           name: "Platinum Tracker",

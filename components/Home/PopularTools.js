@@ -3,7 +3,7 @@ import { BsArrowUpRight } from "react-icons/bs";
 
 const PopularTools = () => {
   return (
-    <div>
+    <div className="border border-black/10 rounded-lg pl-2 pt-3 pr-3 pb-3">
       {/* heading  */}
       <div className="flex justify-between border-b border-black1/20 pb-2 mb-4">
         <h2 className="flex items-center text-[21px] font-bold cambay capitalize ">
@@ -19,7 +19,7 @@ const PopularTools = () => {
       </div>
 
       {/* cards  */}
-      <div className="flex flex-col gap-y-3">
+      <div className="flex flex-col gap-y-6">
         {/* c 1  */}
         <a href="/investments?tab=stock-screener">
           <div className="w-full bg-gray-100 p-4 py-7 border border-gray-300 rounded-sm relative group hover:bg-accent/15 hover:scale-[1.02] transition-all duration-200">
@@ -27,8 +27,8 @@ const PopularTools = () => {
               Gold & Silver Stock Screener
             </h1>
             <p className="text-[15px]  group-hover:text-black/70">
-              Identify and filter Gold & Silver-focused companies based on key factors,
-              financial metrics, and market performance.
+              Identify and filter Gold & Silver-focused companies based on key
+              factors, financial metrics, and market performance.
             </p>
             <span className="absolute top-4 right-4 text-gray-400/80 font-extrabold text-[1.6rem] group-hover:text-green/60">
               <BsArrowUpRight />
@@ -43,8 +43,8 @@ const PopularTools = () => {
               Gold & Silver Insider Trading Screener
             </h1>
             <p className="text-[15px]  group-hover:text-black/70">
-              Track insider transactions in the Gold & Silver space to gain valuable
-              insights each Gold & Silver company.
+              Track insider transactions in the Gold & Silver space to gain
+              valuable insights each Gold & Silver company.
             </p>
             <span className="absolute top-4 right-4 text-gray-400/80 font-extrabold text-[1.6rem] group-hover:text-green/60">
               <BsArrowUpRight />
@@ -59,8 +59,8 @@ const PopularTools = () => {
               ETF/Trust Holdings
             </h1>
             <p className="text-[15px] group-hover:text-black/70">
-              View up-to-date holdings and return profiles for Gold & Silver ETFs and
-              track daily purchases and valuation metrics.
+              View up-to-date holdings and return profiles for Gold & Silver
+              ETFs and track daily purchases and valuation metrics.
             </p>
             <span className="absolute top-4 right-4 text-gray-400/80 font-extrabold text-[1.6rem] group-hover:text-green/60">
               <BsArrowUpRight />

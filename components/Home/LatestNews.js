@@ -394,16 +394,16 @@ const LatestNews = () => {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        console.log('Fetching latest news from:', GENERAL_NEWS);
+        console.log("Fetching latest news from:", GENERAL_NEWS);
         const response = await fetch(GENERAL_NEWS);
-        
+
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
-        
+
         const data = await response.json();
-        console.log('Latest news data:', data);
-        
+        console.log("Latest news data:", data);
+
         if (!data || data.length === 0) {
           console.log("No news available");
           setNewsData([]);
@@ -422,7 +422,7 @@ const LatestNews = () => {
         setNewsData(processedData);
         setLoading(false);
       } catch (err) {
-        console.error('Error fetching latest news:', err);
+        console.error("Error fetching latest news:", err);
         setError(err.message);
         setNewsData([]);
         setLoading(false);
@@ -448,12 +448,37 @@ const LatestNews = () => {
 
   if (loading) {
     return (
-      <div>
-        <h1 className="text-[21px] cambay font-bold mb-5 border-b border-black/10 pb-2">
-          Latest Gold & Silver News
-        </h1>
-        <div className="flex justify-center items-center h-32">
-          <Loader />
+      <div className="border border-black/10 rounded-lg pl-2 pt-3 pr-3 pb-7">
+        <div className="h-6 w-56 bg-gray-200 rounded animate-pulse mb-5 border-b border-black/10 pb-2" />
+
+        <div className="grid grid-cols-1 md:grid-cols-9 gap-12">
+          <div className="col-span-5 ml-4 animate-pulse">
+            <div className="w-full h-64 bg-gray-200 rounded-md mb-2" />
+
+            <div className="h-5 w-16 bg-gray-200 rounded-sm mb-2" />
+
+            <div className="h-5 w-full bg-gray-200 rounded mb-1" />
+            <div className="h-5 w-4/5 bg-gray-200 rounded mb-2" />
+
+            <div className="h-4 w-full bg-gray-200 rounded mb-1" />
+          </div>
+
+          <div className="col-span-4 space-y-4">
+            {Array.from({ length: 3 }).map((_, index) => (
+              <div key={index} className="flex space-x-4 animate-pulse">
+                <div className="w-24 h-24 bg-gray-200 rounded-md flex-shrink-0" />
+
+                <div className="flex flex-col justify-start gap-2 flex-grow">
+                  <div className="h-4 w-14 bg-gray-200 rounded-sm" />
+
+                  <div className="h-4 w-full bg-gray-200 rounded" />
+                  <div className="h-4 w-4/5 bg-gray-200 rounded" />
+
+                  <div className="h-3 w-20 bg-gray-200 rounded mt-1" />
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     );
@@ -486,14 +511,14 @@ const LatestNews = () => {
   }
 
   return (
-    <div>
+    <div className="border border-black/10 rounded-lg pl-2 pt-3 pr-3 pb-6">
       <h1 className="text-[21px] cambay font-bold mb-5 border-b border-black/10 pb-2">
         Latest Gold & Silver News
       </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-9 gap-12">
         {/* Left Side: Main News with Image */}
-        <div>
+        <div className="col-span-5 ml-4">
           {newsData[0] && (
             <a
               href={newsData[0].url}
@@ -508,7 +533,7 @@ const LatestNews = () => {
                   className="w-full h-64 object-cover mb-2 rounded-md"
                 />
               )}
-              
+
               {/* Source or Ticker Badge */}
               {(newsData[0].source || newsData[0].ticker) && (
                 <div className="mb-2">
@@ -517,27 +542,27 @@ const LatestNews = () => {
                   </span>
                 </div>
               )}
-              
+
               <h2 className="text-lg font-semibold text-primary mb-1 hover:underline">
                 {newsData[0].title}
               </h2>
-              
+
               {/* Summary or Content */}
               {(newsData[0].summary || newsData[0].content) && (
                 <p className="text-[14px] text-gray-600 mb-2 line-clamp-2">
-                  {(newsData[0].summary || newsData[0].content).length > 150 
+                  {(newsData[0].summary || newsData[0].content).length > 150
                     ? `${(newsData[0].summary || newsData[0].content).substring(0, 150)}...`
-                    : (newsData[0].summary || newsData[0].content)}
+                    : newsData[0].summary || newsData[0].content}
                 </p>
               )}
-              
+
               {/* Company Name (for stock news) */}
               {newsData[0].company_name && (
                 <p className="text-[13px] text-gray-600 mb-1">
                   {newsData[0].company_name}
                 </p>
               )}
-              
+
               <p className="text-gray-500 text-sm">
                 {formatDate(newsData[0].date)}
               </p>
@@ -546,7 +571,7 @@ const LatestNews = () => {
         </div>
 
         {/* Right Side: Three Vertical News with Images */}
-        <div className="space-y-4">
+        <div className="col-span-4 space-y-4">
           {newsData.slice(1, 4).map((news, index) => (
             <a
               key={news.id || index}
@@ -571,18 +596,18 @@ const LatestNews = () => {
                     </span>
                   </div>
                 )}
-                
+
                 <h3 className="text-sm font-medium text-primary line-clamp-2 text-left hover:underline">
                   {news.title}
                 </h3>
-                
+
                 {/* Company Name (for stock news) */}
                 {news.company_name && (
                   <p className="text-[11px] text-gray-600 mt-1">
                     {news.company_name}
                   </p>
                 )}
-                
+
                 <p className="text-gray-500 text-xs mt-2">
                   {formatDate(news.date)}
                 </p>

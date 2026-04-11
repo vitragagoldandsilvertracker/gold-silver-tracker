@@ -10,6 +10,7 @@ import React from "react";
 import MoreNews from "@/components/News/MoreNews";
 import PopularIntradayReturn from "@/components/Home/MostFollowed";
 import SEO from "@/components/SEO";
+import DirectLithiumPrice from "@/components/Home/DirectLithiumPrice";
 
 const news = () => {
   return (
@@ -25,23 +26,30 @@ const news = () => {
         <Hero />
       </div>
 
-      <div className="flex justify-between flex-wrap px-3 md:px-10 lg:px-16 py-12 mt-6">
-        {/* left */}
-        <div className="w-full lg:w-[66%] flex flex-col space-y-20">
-          <LatestNews />
-          <PressReleaseNews />
-          <StockNews />
-        </div>
-        {/* right */}
-        <div className="w-full lg:w-[26%] space-y-20">
-          <DailyNewsletterAd />
-          <Substacks />
-          <PopularIntradayReturn />
+      <div className="flex flex-col md:flex-row justify-between flex-wrap px-3 md:px-10 lg:px-16 mt-6">
+        <div className="w-full grid grid-cols-1 md:grid-cols-9 gap-4 md:gap-x-6">
+          <div className="md:col-span-6">
+            <div className="flex flex-col gap-4">
+              <LatestNews />
+              <PressReleaseNews sliceVal={6} />
+              <StockNews sliceVal={3} />
+            </div>
+          </div>
+
+          <div className="md:col-span-3">
+            <div className="flex flex-col gap-5">
+              <DailyNewsletterAd />
+              <Substacks />
+              <PopularIntradayReturn />
+            </div>
+          </div>
         </div>
       </div>
 
       {/* More News Section */}
-      <MoreNews />
+      <div className="">
+        <MoreNews />
+      </div>
 
       {/* Footer Section */}
       <div className="mt-0">

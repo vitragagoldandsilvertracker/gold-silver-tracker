@@ -49,8 +49,8 @@ const home = () => {
               <h1 className="text-[21px] cambay font-bold">
                 Recent Canadian Company Insider Transactions
               </h1>
-              <a 
-                href="/investments" 
+              <a
+                href="/investments"
                 className="text-sm text-accent hover:text-accent/80 transition-colors"
               >
                 view all
@@ -59,6 +59,7 @@ const home = () => {
             <HomeInsiderTransactions />
           </div>
           <PlainNews />
+          <PressReleaseNews />
         </div>
 
         {/* 3  */}
@@ -78,7 +79,7 @@ const home = () => {
         {/* left  */}
         <div className="w-full lg:w-[66%] flex flex-col space-y-12">
           {/* <LatestNews /> */}
-          <PressReleaseNews />
+
           <StockNews />
           <MostPopularNews />
         </div>

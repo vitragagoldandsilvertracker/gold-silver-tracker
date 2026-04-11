@@ -34,7 +34,7 @@ const Hero = () => {
       <div className="absolute inset-0">
         <video
           ref={videoRef}
-          src="/HeroBG.mp4"
+          src="/goldbg.mp4"
           autoPlay
           loop
           muted
@@ -57,9 +57,7 @@ const Hero = () => {
         >
           Stay ahead with real-time{" "}
           {/* <span className="text-accent">Platinum news, price And analysis</span> */}
-          <span
-            className="text-accent"
-          >
+          <span className="text-accent">
             Gold & Silver market news, price and analysis
           </span>
         </motion.h1>

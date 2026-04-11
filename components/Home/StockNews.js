@@ -136,7 +136,7 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { STOCK_NEWS } from "@/src/api/lithiumAPI";
 
-const StockNews = () => {
+const StockNews = ({ sliceVal }) => {
   const [newsData, setNewsData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -144,16 +144,16 @@ const StockNews = () => {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        console.log('Fetching stock news from:', STOCK_NEWS);
+        console.log("Fetching stock news from:", STOCK_NEWS);
         const response = await fetch(STOCK_NEWS);
-        
+
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
-        
+
         const data = await response.json();
-        console.log('Stock news data:', data);
-        
+        console.log("Stock news data:", data);
+
         // Process the data to add today's date for missing dates
         const processedData = Array.isArray(data)
           ? data.map((news) => ({
@@ -162,6 +162,7 @@ const StockNews = () => {
             }))
           : [];
         setNewsData(processedData);
+        // console.log("processed data ", processedData);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching stock news:", error);
@@ -199,11 +200,54 @@ const StockNews = () => {
 
   if (loading) {
     return (
-      <div>
+      <div className="border border-black/10 rounded-lg pl-2 pt-3 pr-3 pb-6">
         <h1 className="text-[21px] cambay font-bold mb-5 border-b border-black/10 pb-2">
           Gold & Silver Stock News
         </h1>
-        <div className="text-center py-8">Loading stock news...</div>
+        <div className="grid grid-cols-1 md:grid-cols-9 gap-6">
+          <div className="col-span-5 animate-pulse">
+            <div className="w-full h-[300px] bg-zinc-200 rounded-sm" />
+
+            <div className="pt-4">
+              <div className="flex gap-x-3 mb-2">
+                <div className="h-5 w-14 bg-zinc-200 rounded-sm" />
+                <div className="h-5 w-24 bg-zinc-200 rounded-sm" />
+              </div>
+
+              <div className="h-5 w-full bg-zinc-200 rounded mb-1" />
+              <div className="h-5 w-4/5 bg-zinc-200 rounded mb-2" />
+
+              <div className="h-4 w-full bg-zinc-200 rounded mb-1" />
+              <div className="h-4 w-5/6 bg-zinc-200 rounded mb-2" />
+
+              <div className="flex gap-x-2">
+                <div className="h-4 w-20 bg-zinc-200 rounded" />
+                <div className="h-4 w-4 bg-zinc-200 rounded" />
+                <div className="h-4 w-24 bg-zinc-200 rounded" />
+              </div>
+            </div>
+          </div>
+
+          <div className="col-span-4 space-y-8">
+            {Array.from({ length: sliceVal }).map((_, index) => (
+              <div
+                key={index}
+                className="flex items-center overflow-hidden border-b border-black/10 pb-2 animate-pulse"
+              >
+                <div className="flex-1">
+                  <div className="h-5 w-14 bg-zinc-200 rounded-sm mb-2" />
+
+                  <div className="h-4 w-full bg-zinc-200 rounded mb-1" />
+                  <div className="h-4 w-4/5 bg-zinc-200 rounded mb-1" />
+
+                  <div className="h-3 w-32 bg-zinc-200 rounded mb-1" />
+
+                  <div className="h-3 w-20 bg-zinc-200 rounded" />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     );
   }
@@ -239,10 +283,10 @@ const StockNews = () => {
   }
 
   const featuredNews = validNewsData[0];
-  const remainingNews = validNewsData.slice(1, 5);
+  const remainingNews = validNewsData.slice(1, sliceVal + 1);
 
   return (
-    <div>
+    <div className="border border-black/10 rounded-lg pl-2 pt-3 pr-3 pb-5">
       <h1 className="text-[21px] cambay font-bold mb-5 border-b border-black/10 pb-2">
         Gold & Silver Stock News
       </h1>
@@ -275,20 +319,20 @@ const StockNews = () => {
                   <h3 className="text-[18px] font-medium leading-6 mb-2 group-hover:underline">
                     {featuredNews.title}
                   </h3>
-                  
+
                   {/* Summary */}
                   {featuredNews.summary && (
                     <p className="text-[14px] text-gray-600 mb-2 line-clamp-2">
-                      {featuredNews.summary.length > 150 
+                      {featuredNews.summary.length > 150
                         ? `${featuredNews.summary.substring(0, 150)}...`
                         : featuredNews.summary}
                     </p>
                   )}
-                  
+
                   <div className="text-[14px] text-gray-500 space-x-2">
                     <span>{formatDate(featuredNews.date)}</span>
                     <span>|</span>
-                    <span>{featuredNews.provider || 'Unknown'}</span>
+                    <span>{featuredNews.provider || "Unknown"}</span>
                   </div>
                 </div>
               </div>
@@ -298,7 +342,7 @@ const StockNews = () => {
 
         {/* Remaining News Section */}
         {remainingNews.length > 0 && (
-          <div className="col-span-4 space-y-3">
+          <div className="col-span-4 space-y-7">
             {remainingNews.map((news, index) => (
               <a
                 href={news.url}
@@ -320,14 +364,14 @@ const StockNews = () => {
                       ? `${news.title.slice(0, 90)}...`
                       : news.title}
                   </h3>
-                  
+
                   {/* Company name for smaller news */}
                   {news.company_name && (
                     <p className="text-[12px] text-gray-600 mb-1">
                       {news.company_name}
                     </p>
                   )}
-                  
+
                   <div className="text-[12px] text-gray-500">
                     {formatDate(news.date)}
                   </div>
