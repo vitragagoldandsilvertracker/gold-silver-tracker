@@ -126,7 +126,7 @@ const DPricePremium = () => {
   };
 
   return (
-    <div className="px-3 md:px-12 py-5 md:py-5">
+    <div className="px-3 md:px-12 py-5 md:py-5 border border-black/20 rounded-lg p-3">
       <div className="mb-9 md:mb-16">
         <h1 className="cambay text-[22px] sm:text-2xl font-semibold">
           Price & Premiums
@@ -143,7 +143,7 @@ const DPricePremium = () => {
           <div
             key={chart.id}
             onClick={() => handleNavigation(chart.path)}
-            className="block cursor-pointer"
+            className="block cursor-pointer border border-black/20 rounded-lg p-3"
           >
             <div className="-ml-2 w-full h-[200px] md:h-[300px] flex items-center justify-center">
               {/* <img
