@@ -448,7 +448,7 @@ const LatestNews = () => {
 
   if (loading) {
     return (
-      <div className="border border-black/10 rounded-lg pl-2 pt-3 pr-3 pb-7">
+      <div className="border border-black/10 rounded-lg pl-2 pt-3 pr-3 pb-7 md:pb-6 xl:pb-7">
         <div className="h-6 w-56 bg-gray-200 rounded animate-pulse mb-5 border-b border-black/10 pb-2" />
 
         <div className="grid grid-cols-1 md:grid-cols-9 gap-12">
@@ -511,7 +511,7 @@ const LatestNews = () => {
   }
 
   return (
-    <div className="border border-black/10 rounded-lg pl-2 pt-3 pr-3 pb-6">
+    <div className="border border-black/10 rounded-lg pl-2 pt-3 pr-3 pb-7 md:pb-1 xl:pb-7">
       <h1 className="text-[21px] cambay font-bold mb-5 border-b border-black/10 pb-2">
         Latest Gold & Silver News
       </h1>

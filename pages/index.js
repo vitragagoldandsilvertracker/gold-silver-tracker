@@ -39,8 +39,9 @@ const home = () => {
 
       {/* 3 cols  */}
 
-      <div className="flex flex-col md:flex-row gap-6 px-3 md:px-10 lg:px-12 py-8 mb-8">
-        <div className="flex flex-col gap-10">
+      <div className="flex flex-col md:flex-row gap-6 px-3 md:px-3 2xl:px-12 py-8 mb-8">
+        <div className="lg:w-[76%] flex flex-col gap-10">
+          {/* 1 */}
           <div className="w-full grid grid-cols-1 md:grid-cols-9 gap-4 md:gap-x-6 ">
             <div className="md:col-span-3 border border-black/10 rounded-lg pl-2 pt-3 pr-3 ">
               <h1 className="text-[21px] cambay font-bold mb-3 border-b border-black/10 pb-1">
@@ -58,6 +59,7 @@ const home = () => {
             </div>
           </div>
 
+          {/* 2 */}
           <div className="grid grid-cols-1 md:grid-cols-9 md:gap-4 md:gap-x-6 md:w-full ">
             <div className="md:col-span-9 border border-black/10 rounded-lg pl-2 pt-3 pr-3">
               <div className="flex justify-between items-center mb-3 border-b border-black/10 pb-1">
@@ -74,10 +76,12 @@ const home = () => {
               <HomeInsiderTransactions />
             </div>
           </div>
+
+          {/* 3 */}
           <LatestNews />
         </div>
 
-        <div className="w-full lg:w-[24%] flex flex-col space-y-6">
+        <div className="w-full lg:w-[24%] flex flex-col space-y-6 xl:space-y-2 2xl:space-y-6">
           <div className="border border-black/10 rounded-lg pl-2 pt-3 pr-3">
             <h1 className="text-[21px] cambay font-bold mb-3 border-b border-black/10 pb-1">
               Gold & Silver Futures
@@ -87,12 +91,19 @@ const home = () => {
 
           <Substacks />
 
-          <DailyNewsletterAd />
+          <div className="block md:hidden xl:block ">
+            <DailyNewsletterAd />
+          </div>
         </div>
       </div>
 
+      {/* this is only for the tab view  */}
+      <div className="hidden md:block xl:hidden md:px-14 lg:px-12 ">
+        <DailyNewsletterAd />
+      </div>
+
       {/* 2 cols  */}
-      <div className="flex flex-col lg:flex-row justify-between gap-6 px-3 md:px-10 lg:px-12 py-8 mb-8">
+      <div className="flex flex-col lg:flex-row justify-between gap-6 px-3 md:px-3 2xl:px-12 py-8 mb-8">
         {/* <div className="grid grid-col-9 gap-6 px-3 md:px-10 lg:px-12 py-8 mb-8"> */}
         <div className="w-full lg:w-[76%] flex flex-col space-y-12">
           <PressReleaseNews sliceVal={8} />
@@ -100,7 +111,10 @@ const home = () => {
         </div>
 
         <div className="w-full lg:w-[26%] space-y-5">
-          <DirectLithiumPrice />
+          <div className="border border-black/10 rounded-lg pt-3 pl-3 pb-2 pr-1">
+            <DirectLithiumPrice />
+          </div>
+
           {/* <LithiumTradingviewChart /> */}
           <PopularIntradayReturn />
           <PopularTools />
@@ -109,12 +123,12 @@ const home = () => {
         </div>
       </div>
 
-      <div className="px-3 md:px-10 lg:px-12 ">
+      <div className="px-3 md:px-3 2xl:px-12 py-8 ">
         <MostPopularNews />
       </div>
 
       {/* Most Followed Stocks Table */}
-      <div className="">
+      <div className="px-3 md:px-3 2xl:px-12 py-8 mb-8">
         <MostFollowedStocksTable />
       </div>
 

@@ -77,7 +77,7 @@ const Substacks = () => {
     fetchSubstacks();
   }, []);
 
-  if (!loading) {
+  if (loading) {
     return (
       <div className="border border-black/10 rounded-lg pl-2 pt-3 pr-3">
         <h2 className="flex items-center text-[19px] md:text-[21px] font-bold cambay border-b border-gray-300 pb-2 mb-3">
@@ -91,10 +91,8 @@ const Substacks = () => {
             >
               <div className="flex flex-col flex-grow gap-2">
                 <div className="h-3 w-14 bg-gray-200 rounded" />
-
                 <div className="h-4 w-4/5 bg-gray-200 rounded mt-1" />
                 <div className="h-4 w-3/5 bg-gray-200 rounded" />
-
                 <div className="h-3 w-full bg-gray-200 rounded mt-1" />
                 <div className="h-3 w-5/6 bg-gray-200 rounded" />
                 <div className="h-3 w-20 bg-gray-200 rounded mt-1" />

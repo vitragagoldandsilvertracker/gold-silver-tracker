@@ -56,22 +56,22 @@ const DirectLithiumPrice = () => {
 
   if (loading) {
     return (
-      <div className="text-center border border-black/10 rounded-lg pl-2 pt-3 pr-3 pb-4">
+      <div className="text-center border border-black/10 rounded-lg pl-2 pt-3 pr-3 md:pr-0 2xl:pr-3 pb-3">
         <h2 className="flex text-[21px] md:text-[16px] lg:text-[21px] cambay font-bold text-black1/80 capitalize border-b border-black1/20 pb-2 mb-6 lg:mb-4">
           Live Gold & Silver Price
         </h2>
 
         <div className="bg-accent/30 p-3 md:p-2 lg:p-3 py-4 w-full border border-accent/30 rounded-md flex justify-between items-center">
-          <div className="h-8 md:h-6 lg:h-8">
+          <div className="h-8 md:hidden 2xl:block lg:h-8">
             <img
-              className="w-22 md:w-12 lg:w-28 h-11 md:h-6 lg:h-10 sm:h-10 sm:w-28"
+              className="w-28 xl:w-28 h-10 md:h-8 xl:h-8 2xl:h-10 sm:h-10 sm:w-28"
               src="/logotransparent.jpg"
               alt="Gold & Silver Tracker Logo"
             />
           </div>
 
-          <div className="w-[60%] md:w-[70%] pr-1">
-            <ul className="flex items-center gap-x-5 md:gap-x-3 lg:gap-x-5 text-xs md:text-[10px] lg:text-sm">
+          <div className="w-[60%] md:w-full 2xl:w-[60%] pr-1">
+            <ul className="flex items-center gap-x-5 md:gap-x-3 lg:gap-x-3 text-sm md:text-lg xl:text-sm md:text-[10px] lg:text-sm">
               <li className="w-[33%] text-black1/80 font-medium">Price</li>
               <li className="w-[33%] text-black1/80 font-medium">Change</li>
               <li className="w-[33%] text-black1/80 font-medium">%Change</li>
@@ -81,13 +81,13 @@ const DirectLithiumPrice = () => {
 
         <div className="mt-1 bg-accent/30 p-3 md:p-2 lg:p-3 py-4 w-full border border-accent/30 rounded-md flex justify-between items-center">
           <div>
-            <h3 className="text-xs md:text-[9px] lg:text-sm font-bold text-green">
+            <h3 className="text-left text-xs md:hidden 2xl:block lg:text-sm font-bold text-green">
               Gold & Silver Spot Price
             </h3>
           </div>
 
-          <div className="w-[60%] md:w-[70%]">
-            <ul className="flex items-center gap-x-5 md:gap-x-3 lg:gap-x-5 text-xs md:text-[9px] lg:text-sm">
+          <div className="w-[60%] md:w-full 2xl:w-[60%] ">
+            <ul className="flex items-center gap-x-5 md:gap-x-3 lg:gap-x-5 text-xs md:text-[9px] lg:text-sm font-semibold text-green">
               <li className="w-[33%]">
                 <div className="h-3 w-14 bg-zinc-200 rounded animate-pulse" />
               </li>
@@ -130,22 +130,22 @@ const DirectLithiumPrice = () => {
     lithiumData;
 
   return (
-    <div className="text-center border border-black/10 rounded-lg pl-2 pt-3 pr-3 pb-3">
+    <div className="text-center border border-black/10 rounded-lg pl-2 pt-3 pr-3 md:pr-0 2xl:pr-3 pb-3">
       <h2 className="flex text-[21px] md:text-[16px] lg:text-[21px] cambay font-bold text-black1/80 capitalize border-b border-black1/20 pb-2 mb-6 lg:mb-4">
         Live Gold & Silver Price
       </h2>
 
       <div className="bg-accent/30 p-3 md:p-2 lg:p-3 py-4 w-full border border-accent/30 rounded-md flex justify-between items-center">
-        <div className="h-8 md:h-6 lg:h-8">
+        <div className="h-8 md:hidden 2xl:block lg:h-8">
           <img
-            className="w-22 md:w-12 lg:w-28 h-11 md:h-6 lg:h-10 sm:h-10 sm:w-28"
+            className="w-28 xl:w-28 h-10 md:h-8 xl:h-8 2xl:h-10 sm:h-10 sm:w-28"
             src="/logotransparent.jpg"
             alt="Gold & Silver Tracker Logo"
           />
         </div>
 
-        <div className="w-[60%] md:w-[70%] pr-1">
-          <ul className="flex items-center gap-x-5 md:gap-x-3 lg:gap-x-5 text-xs md:text-[10px] lg:text-sm">
+        <div className="w-[60%] md:w-full 2xl:w-[60%] pr-1">
+          <ul className="flex items-center gap-x-5 md:gap-x-3 lg:gap-x-3 text-sm md:text-lg xl:text-sm md:text-[10px] lg:text-sm">
             <li className="w-[33%] text-black1/80 font-medium">Price</li>
             <li className="w-[33%] text-black1/80 font-medium">Change</li>
             <li className="w-[33%] text-black1/80 font-medium">%Change</li>
@@ -155,12 +155,12 @@ const DirectLithiumPrice = () => {
 
       <div className="mt-1 bg-accent/30 p-3 md:p-2 lg:p-3 py-4 w-full border border-accent/30 rounded-md flex justify-between items-center">
         <div>
-          <h3 className="text-xs md:text-[9px] lg:text-sm font-bold text-green">
+          <h3 className="text-left text-xs md:hidden 2xl:block lg:text-sm font-bold text-green">
             Gold & Silver Spot Price
           </h3>
         </div>
 
-        <div className="w-[60%] md:w-[70%]">
+        <div className="w-[60%] md:w-full 2xl:w-[60%] ">
           <ul className="flex items-center gap-x-5 md:gap-x-3 lg:gap-x-5 text-xs md:text-[9px] lg:text-sm font-semibold text-green">
             <li className="w-[33%]">
               <p>${price}</p>

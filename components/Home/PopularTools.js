@@ -19,7 +19,7 @@ const PopularTools = () => {
       </div>
 
       {/* cards  */}
-      <div className="flex flex-col gap-y-6">
+      <div className="flex flex-col gap-y-6 md:gap-y-10 xl:gap-y-2 2xl:gap-y-6">
         {/* c 1  */}
         <a href="/investments?tab=stock-screener">
           <div className="w-full bg-gray-100 p-4 py-7 border border-gray-300 rounded-sm relative group hover:bg-accent/15 hover:scale-[1.02] transition-all duration-200">
