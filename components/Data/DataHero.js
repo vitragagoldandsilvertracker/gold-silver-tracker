@@ -1,57 +1,81 @@
 import React from "react";
+import * as style from "./styles.js";
 
 const DataHero = () => {
   return (
-    <div className="relative bg-black w-full py-12">
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 w-full h-full bg-cover bg-no-repeat bg-top"
-        style={{
-          backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.8)), url(/datahero.jpg)`,
-        }}
-      ></div>
-
-      {/* Content Wrapper */}
-      <div className="max-w-7xl mx-auto px-4 relative z-10">
-        {/* <div
-          className="relative flex items-start overflow-hidden rounded-lg fade-in"
-          style={{
-            height: "350px",
-            paddingTop: "80px",
-          }}
-        > */}
-        <div
-          className="relative flex items-start overflow-hidden rounded-lg fade-in pt-[60px] md:pt-[80px] "
-          style={{ height: "350px" }}
-        >
-          {/* Text Content */}
-          <div className="relative z-10 p-6 text-white max-w-2xl">
-            <p className="inline-block px-2 py-1 rounded-full text-xs font-semibold bg-accent">
-              Lithium Data
+    <section style={style.hero}>
+      <div style={style.heroBefore} />
+      <div style={{ ...style.w, ...style.heroInner }}>
+        <p style={style.hEye}>Live market data — 42 sources, all automated</p>
+        <h1 style={style.hTitle}>
+          Live Gold & Silver <em style={style.hTitleEm}>Prices</em>, Charts &
+          Data
+        </h1>
+        <p style={style.hSub}>
+          Prices, macro drivers, COMEX & LBMA inventory, COT positioning, ETF
+          flows and mining analytics. US-focused. Updated daily. $0/month to
+          run. Use our{" "}
+          <a
+            href="/investments?tab=stock-screener"
+            style={{
+              ...style.aBase,
+              color: style.tokens.goldL,
+              textDecoration: "underline",
+            }}
+          >
+            gold mining stock screener
+          </a>{" "}
+          or read the{" "}
+          <a
+            href="/gold-silver-101"
+            style={{
+              ...style.aBase,
+              color: style.tokens.goldL,
+              textDecoration: "underline",
+            }}
+          >
+            Gold & Silver 101 guide
+          </a>
+          .
+        </p>
+        <div style={style.hUpd}>
+          <span style={style.ldot}></span>
+          April 13, 2026 · 9:05 AM ET · Sources: GoldAPI, FRED, CME, CFTC, WGC,
+          LBMA, Silver Institute
+        </div>
+        {/* <div className="grid grid-cols" style={style.hpg}> */}
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
+          <div style={style.hpc}>
+            <p style={style.hpcL}>Gold — XAU/USD</p>
+            <p style={{ ...style.hpcV, color: style.tokens.goldL }}>
+              $4,728.00
             </p>
-
-            <h1 className="text-2xl lg:text-4xl font-bold my-4 cambay">
-              Discover the data you need to analyze and{" "}
-              <span className="text-white">Research Lithium</span>
-            </h1>
-
-            <p className="text-sm md:text-base mb-10">
-              Access comprehensive Lithium market data, including price trends,
-              supply and demand metrics, and industry analysis. Our detailed
-              datasets provide the insights you need for informed
-              decision-making in the Lithium market.
+            <p style={{ ...style.hpcC, ...style.dn }}>▼ −$20.90 (−0.44%)</p>
+            <p style={style.hpcS}>ATH $5,602 · Jan 28, 2026</p>
+          </div>
+          <div style={style.hpc}>
+            <p style={style.hpcL}>Silver — XAG/USD</p>
+            <p style={{ ...style.hpcV, color: style.tokens.silL }}>$73.00</p>
+            <p style={{ ...style.hpcC, ...style.up }}>▲ +$0.15 (+0.21%)</p>
+            <p style={style.hpcS}>ATH $121 · Jan 2026</p>
+          </div>
+          <div style={style.hpc}>
+            <p style={style.hpcL}>Gold / Silver Ratio</p>
+            <p style={style.hpcV}>64.8×</p>
+            <p style={{ ...style.hpcC, ...style.neu }}>Long-run avg: 67×</p>
+            <p style={style.hpcS}>Near historical average</p>
+          </div>
+          <div style={style.hpc}>
+            <p style={style.hpcL}>10yr Real Yield (TIPS)</p>
+            <p style={{ ...style.hpcV, color: "rgba(255,255,255,.85)" }}>
+              1.89%
             </p>
-
-            <div className="text-xs text-gray-300">
-              <p className="text-gray-300">
-                Unlock actionable insights with reliable data and in-depth
-                expertise.
-              </p>
-            </div>
+            <p style={{ ...style.hpcC, ...style.neu }}>FRED: DFII10</p>
+            <p style={style.hpcS}>Primary gold price driver</p>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

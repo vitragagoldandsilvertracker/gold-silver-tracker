@@ -14,24 +14,17 @@ const Footer = () => {
             {/* Text Content */}
             <div className="text-start lg:w-1/2 flex flex-col justify-center">
               <h1 className="text-2xl sm:text-[1.5rem] md:text-4xl font-semibold mb-6 md:leading-14 frank">
-                Everything You Need to Navigate the Gold & Silver Market – All in One
-                Place
+                Everything You Need to Navigate the Gold & Silver Market – All
+                in One Place
               </h1>
               <p className="text-xs sm:text-[13px] md:text-[14.5px] mb-8 text-white/70 leading-5 font-normal">
                 With demand for clean energy on the rise, many investors are
-                looking for the next big opportunity in Gold & Silver. We're here to help.
-                Sign up to receive our best insights and updates every week.
+                looking for the next big opportunity in Gold & Silver. We're
+                here to help. Sign up to receive our best insights and updates
+                every week.
               </p>
-              <button
-                type="submit"
-                className="h-10 w-fit px-6 rounded-sm bg-accent text-white font-medium hover:bg-accent/90 frank text-[14px]"
-                onClick={() => router.push("/auth/signup")}
-              >
-                Sign Up For Free
-              </button>
             </div>
 
-            {/* Image Content */}
             <div className="hidden image-content mt-10 lg:mt-0 lg:w-[40%] md:flex overflow-hidden">
               <img
                 src="/mockup.png"

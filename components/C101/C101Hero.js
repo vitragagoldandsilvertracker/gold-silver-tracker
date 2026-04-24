@@ -1,49 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
+import * as style from "./styles.js";
 
 const C101Hero = () => {
+  const [isHeroCtaHovered, setIsHeroCtaHovered] = useState(false);
+
   return (
-    <div className="relative bg-black w-full py-8">
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 w-full h-full bg-cover bg-center"
-        style={{
-          backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url(https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80)`,
-        }}
-      ></div>
-
-      {/* Content Wrapper */}
-      <div className="max-w-7xl mx-auto px-4 relative z-10">
-        <div
-          className="relative flex items-start overflow-hidden rounded-lg fade-in pt-[60px] md:pt-[80px] "
-          style={{ height: "350px" }}
-        >
-          {/* Text Content */}
-          <div className="relative z-10 p-6 text-white max-w-2xl">
-            <p className="inline-block px-2 py-1 rounded-full text-xs font-semibold bg-accent">
-              Lithium 101
-            </p>
-
-            <h1 className="text-2xl lg:text-4xl font-bold my-4  cambay">
-              Explore the Latest Insights, Market Data, and{" "}
-              <span className="text-white">Key Information on Lithium</span>
-            </h1>
-
-            <p className="text-sm md:text-base mb-6">
-              Get started with our comprehensive guide to lithium markets. From
-              fundamental concepts to advanced market analysis, discover
-              everything you need to know about this essential metal's role in
-              the global economy and renewable energy transition.
-            </p>
-
-            <div className="text-xs text-gray-300">
-              <p className="text-gray-300">
-                Your complete guide to understanding lithium markets
-              </p>
-            </div>
-          </div>
+    <section style={style.hero}>
+      <div style={style.heroInner}>
+        <p style={style.heroLabel}>
+          The complete investor&rsquo;s guide &mdash; updated April 2026
+        </p>
+        <h1 style={style.heroH1}>
+          Gold &amp; Silver <em style={style.heroH1Em}>101</em>
+        </h1>
+        <p style={style.heroDesc}>
+          How the prices work, what drives them, how to own them, and what the
+          silver supply deficit actually means. Written for US investors. No
+          hype, no sales pitch, no jargon that isn&rsquo;t explained.
+        </p>
+        <div style={style.heroMeta}>
+          <span>
+            <span style={style.liveDot}></span>
+            Prices: $4,728 gold &middot; $73 silver &middot; 64.8&times; ratio
+          </span>
+          <span>Updated: April 13, 2026</span>
+          <span>~35 min read</span>
         </div>
+        <a
+          href="/data/"
+          onMouseEnter={() => setIsHeroCtaHovered(true)}
+          onMouseLeave={() => setIsHeroCtaHovered(false)}
+          style={{
+            ...style.heroCta,
+            marginTop: "16px",
+            ...(isHeroCtaHovered ? style.heroCtaHover : {}),
+          }}
+        >
+          See Live Charts &amp; Data &rarr;
+        </a>
       </div>
-    </div>
+    </section>
   );
 };
 

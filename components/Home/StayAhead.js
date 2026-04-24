@@ -70,19 +70,13 @@ const StayAhead = () => {
         <div className="md:w-2/6 sm:p-8 rounded-lg flex flex-col justify-between">
           <div>
             <h1 className="text-xl sm:text-3xl font-bold mb-3 sm:mb-6 cambay text-white">
-            Stay ahead with real-time Gold & Silver news, price and analysis
+              Stay ahead with real-time Gold & Silver news, price and analysis
             </h1>
             <p className="text-sm text-white/80 font-medium mb-4 sm:mb-8">
-              Sign up for Gold & Silver Tracker to gain access to Gold & Silver Tracker's full
-              suite of research tools
+              See our latest data in a better way to understand things more
+              precisely.
             </p>
           </div>
-          <Link
-            href="/auth/signup"
-            className="bg-white hover:bg-white/90 lg:bg-white lg:hover:bg-white/90 text-center text-accent font-bold py-2.5 sm:py-3 px-4 sm:px-6 rounded w-full text-sm"
-          >
-            SUBSCRIBE TODAY
-          </Link>
         </div>
 
         {/* Right Section - Feature Cards */}
