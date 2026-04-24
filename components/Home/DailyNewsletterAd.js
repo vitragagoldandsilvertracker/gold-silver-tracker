@@ -10,22 +10,13 @@ const DailyNewsletterAd = () => {
 
   return (
     <div className="bg-gradient-to-b from-accent to-accent/50 rounded-lg p-9 md:p-3 2xl:p-9">
-      {/* Heading Section */}
       <h2 className="text-white text-3xl xl:text-xl 2xl:text-3xl font-semibold cambay">
-<<<<<<< data
         See our <span className="text-white">LATEST</span>
       </h2>
       <h2 className="text-white text-3xl xl:text-xl 2xl:text-3xl font-bold cambay">
         Weekly Data.
-=======
-        Receive our <span className="text-white">FREE</span>
-      </h2>
-      <h2 className="text-white text-3xl xl:text-xl 2xl:text-3xl font-bold cambay">
-        Weekly Newsletter.
->>>>>>> main
       </h2>
 
-      {/* Button Section */}
       <div className="mt-8 xl:mt-1 2xl:mt-8">
         <button
           onClick={handleSubscribe}
