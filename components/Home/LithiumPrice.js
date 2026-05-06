@@ -1,70 +1,104 @@
+import axios from "axios";
+import { se } from "date-fns/locale";
 import React, { useState, useEffect } from "react";
 
 const LithiumPrice = () => {
-  const [lithiumData, setLithiumData] = useState(null);
+  // const [lithiumData, setLithiumData] = useState(null);
+  const [goldData, setGoldData] = useState(null);
+  const [goldSpotPrice, setGoldSpotPrice] = useState(null);
+  const [change, setChange] = useState(null);
+  const [changePercentage, setChangePercentage] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
-    // Fetch CME lithium spot price data from the API
-    fetch('/api/cme-lithium-spot')
-      .then((response) => response.json())
-      .then((response) => {
-        if (response.success && response.data) {
-          setLithiumData(response.data);
-        } else {
-          console.error("Failed to fetch CME lithium data:", response.message);
-          // No fallback data - show error state
-          setLithiumData(null);
-        }
-      })
-      .catch((error) => {
-        console.error("Error fetching CME lithium data:", error);
-        // No fallback data - show error state
-        setLithiumData(null);
-      });
+    async function getPrice() {
+      try {
+        setLoading(true);
+        const res = await axios.get(
+          "https://spot-scrapper-production.up.railway.app/api/spot-prices",
+        );
+        // console.log("jancjksdjcnj", res.data);
+        const allPrices = res.data.data.metals;
+        const gp = allPrices.find((i) => {
+          return i.name == "Gold";
+        });
+        setGoldData(gp);
+        // console.log("gp", gp);
+        const goldSpotPrice = calcSpot(
+          parseFloat(gp.bid.replace(/,/g, "")),
+          parseFloat(gp.ask.replace(/,/g, "")),
+        );
+        // console.log("goldSpotPrice", goldSpotPrice);
+        setGoldSpotPrice(goldSpotPrice);
+        setChange(parseFloat(gp.change.replace(/,/g, "")));
+        setChangePercentage(
+          parseFloat(gp.changePercent.replace(/%/g, "").replace(/,/g, "")),
+        );
+      } catch (error) {
+        console.error("Error fetching gold price data:", error);
+        setError(true);
+      } finally {
+        setLoading(false);
+      }
+    }
+    getPrice();
   }, []);
 
-  // If lithiumData is not yet available, render a loading state
-  if (!lithiumData) {
+  const calcSpot = (bid, ask) => {
+    let res = (bid + ask) / 2;
+    return res;
+  };
+
+  if (loading) {
     return (
       <div className="flex flex-col lg:flex-row gap-4 lg:gap-10 mt-4 rounded-lg max-w-3xl">
-        <div className="text-center text-red-400">
-          <p>CME lithium spot price data unavailable</p>
-          <p className="text-sm text-gray-400">Real-time data only - no fallback data</p>
+        <div className="hidden lg:flex flex-row gap-10">
+          <div className="text-center lg:text-left">
+            <div className="h-4 w-32 bg-zinc-200 rounded animate-pulse mb-2" />
+            <div className="h-4 w-20 bg-zinc-200 rounded animate-pulse" />
+          </div>
+          <div className="text-center lg:text-left">
+            <div className="h-4 w-16 bg-zinc-200 rounded animate-pulse mb-2" />
+            <div className="h-4 w-14 bg-zinc-200 rounded animate-pulse" />
+          </div>
+          <div className="text-center lg:text-left">
+            <div className="h-4 w-20 bg-zinc-200 rounded animate-pulse mb-2" />
+            <div className="h-4 w-14 bg-zinc-200 rounded animate-pulse" />
+          </div>
+        </div>
+
+        <div className="lg:hidden space-y-2">
+          <div className="h-4 w-48 bg-zinc-200 rounded animate-pulse" />
+          <div className="h-4 w-32 bg-zinc-200 rounded animate-pulse" />
+          <div className="h-4 w-28 bg-zinc-200 rounded animate-pulse" />
         </div>
       </div>
     );
   }
 
-  // Extract and format the required values, with fallback to 0.00 if data is invalid
-  const price = lithiumData.last_price ? parseFloat(lithiumData.last_price) : 0;
-  const lithiumSpotPrice = price > 1000
-    ? price.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 })
-    : price.toFixed(4);
-  
-  const changeValue = lithiumData.price_change ? parseFloat(lithiumData.price_change) : 0;
-  const change = changeValue > 1000
-    ? changeValue.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 })
-    : changeValue.toFixed(4);
-  
-  const changePercentage = lithiumData.price_change_percent
-    ? parseFloat(lithiumData.price_change_percent).toFixed(2)
-    : "0.00";
-
-  // Format the change to display the dollar sign before the negative sign if necessary
-  const formattedChange = `${changeValue > 0 ? "+" + change : change}`;
+  if (error) {
+    return (
+      <div className="flex flex-col lg:flex-row gap-4 lg:gap-10 mt-4 rounded-lg max-w-3xl">
+        <div className=" text-red-400">
+          <p>CME Gold spot price data unavailable at this moment</p>
+          <p className="text-sm text-gray-400">
+            Here only real data is shown , no fallback data
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col lg:flex-row gap-4 lg:gap-10 mt-4 rounded-lg max-w-3xl">
-      {/* Large Screen Layout */}
       <div className="hidden lg:flex flex-row gap-10">
-        {/* Lithium Spot Price */}
         <div className="text-center lg:text-left">
           <h2 className="text-base font-bold text-white">
             Gold & Silver Spot Price
           </h2>
-          <p className="text-base mt-1">¥{lithiumSpotPrice}</p>
+          <p className="text-base mt-1">${goldSpotPrice}</p>
         </div>
-        {/* Change in Yuan */}
         <div className="text-center lg:text-left">
           <h2 className="text-base font-bold text-white">Change</h2>
           <p
@@ -72,10 +106,9 @@ const LithiumPrice = () => {
               parseFloat(change) > 0 ? "text-green-400" : "text-red-400"
             }`}
           >
-            ¥{formattedChange}
+            ${change}
           </p>
         </div>
-        {/* Change Percentage */}
         <div className="text-center lg:text-left">
           <h2 className="text-base font-bold text-white">% Change</h2>
           <p
@@ -91,12 +124,10 @@ const LithiumPrice = () => {
           </p>
         </div>
       </div>
-
-      {/* Small Screen Layout */}
       <div className="lg:hidden space-y-2">
         <p className="text-base font-bold text-white">
           Gold & Silver Spot Price:{" "}
-          <span className="font-normal">¥{lithiumSpotPrice}</span>
+          <span className="font-normal">${goldSpotPrice}</span>
         </p>
 
         <p className="text-base font-bold text-white">
@@ -106,7 +137,7 @@ const LithiumPrice = () => {
               parseFloat(change) > 0 ? "text-green-400" : "text-red-400"
             } font-normal`}
           >
-            ¥{formattedChange}
+            ${change}
           </span>
         </p>
         <p className="text-base font-bold text-white">
@@ -116,7 +147,7 @@ const LithiumPrice = () => {
               parseFloat(changePercentage) > 0
                 ? "text-green-400"
                 : "text-red-400"
-            } font-normal`}
+            }`}
           >
             {parseFloat(changePercentage) > 0
               ? `+${changePercentage}%`
