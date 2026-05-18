@@ -49,9 +49,9 @@
 
 //   return (
 //     <div className="">
-//       <h1 className="text-[21px] cambay font-bold mb-5 border-b border-black/10 pb-2">
+//       <h2 className="text-[21px] cambay font-bold mb-5 border-b border-black/10 pb-2">
 //         Latest Platinum News
-//       </h1>
+//       </h2>
 
 //       <div className="flex flex-wrap md:flex-nowrap ">
 //         {/* Full News Section */}
@@ -182,9 +182,9 @@
 
 //   return (
 //     <div className="">
-//       <h1 className="text-[21px] cambay font-bold mb-5 border-b border-black/10 pb-2">
+//       <h2 className="text-[21px] cambay font-bold mb-5 border-b border-black/10 pb-2">
 //         Latest Platinum News
-//       </h1>
+//       </h2>
 
 //       <div className="flex flex-wrap md:flex-nowrap ">
 //         {/* Full News Section */}
@@ -324,9 +324,9 @@
 
 //   return (
 //     <div className="">
-//       <h1 className="text-[21px] cambay font-bold mb-5 border-b border-black/10 pb-2">
+//       <h2 className="text-[21px] cambay font-bold mb-5 border-b border-black/10 pb-2">
 //         Latest Copper News
-//       </h1>
+//       </h2>
 
 //       <div className="flex flex-wrap md:flex-nowrap">
 //         {/* Full News Section */}
@@ -487,9 +487,9 @@ const LatestNews = () => {
   if (error) {
     return (
       <div>
-        <h1 className="text-[21px] cambay font-bold mb-5 border-b border-black/10 pb-2">
+        <h2 className="text-[21px] cambay font-bold mb-5 border-b border-black/10 pb-2">
           Latest Gold & Silver News
-        </h1>
+        </h2>
         <div className="flex justify-center items-center h-32 text-red-500">
           <span>Error: {error}</span>
         </div>
@@ -500,9 +500,9 @@ const LatestNews = () => {
   if (newsData.length === 0) {
     return (
       <div>
-        <h1 className="text-[21px] cambay font-bold mb-5 border-b border-black/10 pb-2">
+        <h2 className="text-[21px] cambay font-bold mb-5 border-b border-black/10 pb-2">
           Latest Gold & Silver News
-        </h1>
+        </h2>
         <div className="text-center py-8 text-gray-500">
           No news available at this time
         </div>
@@ -512,9 +512,9 @@ const LatestNews = () => {
 
   return (
     <div className="border border-black/10 rounded-lg pl-2 pt-3 pr-3 pb-7 md:pb-1 xl:pb-7">
-      <h1 className="text-[21px] cambay font-bold mb-5 border-b border-black/10 pb-2">
+      <h2 className="text-[21px] cambay font-bold mb-5 border-b border-black/10 pb-2">
         Latest Gold & Silver News
-      </h1>
+      </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-9 gap-12">
         {/* Left Side: Main News with Image */}

@@ -111,10 +111,10 @@ const investments = ({ stockData }) => {
   return (
     <div>
       <SEO
-        title="Gold & Silver Investment Insights - Market Trends & Stock Analysis"
-        description="Explore in-depth Gold & Silver investment insights, stock analysis, and the latest market trends. Stay informed about financial updates, ETF holdings, insider transactions, and stock screening tools to make better investment decisions."
+        title="Gold & Silver ETFs (GLD, SLV), Mining Stocks & Insider Transactions"
+        description="Explore Gold & Silver ETF holdings, mining stock screener, insider transactions, and investment snapshot. Data-driven tools for precious metals investors."
         keywords="Gold & Silver investment insights, stock market trends, ETF holdings, stock analysis, insider transactions, stock screener, market updates, investment strategies, Gold & Silver investments"
-        canonicalUrl="https://musical-panda-75f15d.netlify.app/investments"
+        canonicalUrl="https://www.goldandsilvertracker.com/investments/"
       />
 
       <Navbar />
@@ -165,9 +165,9 @@ const investments = ({ stockData }) => {
           )}
           {currentTab === "stock-screener" && (
             <div className="py-5">
-              <h1 className="cambay text-[22px] sm:text-3xl font-semibold">
+              <h2 className="cambay text-[22px] sm:text-3xl font-semibold">
                 Stock Screener
-              </h1>
+              </h2>
               <div className="mt-1 md:mt-5">
                 <div className="w-full bg-accent/10 border border-date/20 p-2 py-4 md:p-8 rounded-lg mb-24">
                   {/* Filter Section */}

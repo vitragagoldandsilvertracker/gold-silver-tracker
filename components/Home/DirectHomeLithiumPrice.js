@@ -129,7 +129,7 @@ const DirectHomeLithiumPrice = () => {
           <thead className="text-left">
             <tr className="text-black/60">
               <th className="border-t px-7 py-4">Metal</th>
-              <th className="border-t px-7 py-4">Price (USD/lb)</th>
+              <th className="border-t px-7 py-4">Price (USD/oz)</th>
               <th className="border-t px-7 py-4">Change</th>
               <th className="border-t px-7 py-4">% Change</th>
             </tr>
@@ -176,7 +176,7 @@ const DirectHomeLithiumPrice = () => {
         <thead className="text-left">
           <tr className="text-black/60">
             <th className="border-t px-7 py-4">Metal</th>
-            <th className="border-t px-7 py-4">Price (USD/lb)</th>
+            <th className="border-t px-7 py-4">Price (USD/oz)</th>
             <th className="border-t px-7 py-4">Change</th>
             <th className="border-t px-7 py-4">% Change</th>
           </tr>

@@ -1,6 +1,7 @@
 import Head from "next/head";
 
 const SEO = ({ title, description, keywords, canonicalUrl }) => {
+  const url = canonicalUrl || "https://www.goldandsilvertracker.com/";
   return (
     <Head>
       <title>{title}</title>
@@ -13,22 +14,16 @@ const SEO = ({ title, description, keywords, canonicalUrl }) => {
       <meta property="og:type" content="website" />
       <meta
         property="og:image"
-        content="https://musical-panda-75f15d.netlify.app/_next/image?url=%2Flogo.jpg&w=128&q=75"
+        content="https://www.goldandsilvertracker.com/Gold_and_silver_thumbnail.png"
       />
-      <meta
-        property="og:url"
-        content={canonicalUrl || "https://musical-panda-75f15d.netlify.app/"}
-      />
-      <link
-        rel="canonical"
-        href={canonicalUrl || "https://musical-panda-75f15d.netlify.app/"}
-      />
-      <link rel="icon" href="/favicon.ico" />{" "}
+      <meta property="og:url" content={url} />
+      <link rel="canonical" href={url} />
+      <link rel="icon" type="image/png" href="/Gold_and_silver_thumbnail.png" />
       <script type="application/ld+json">
         {JSON.stringify({
-          name: "Platinum Tracker",
-          url: "https://musical-panda-75f15d.netlify.app/",
-          logo: "https://musical-panda-75f15d.netlify.app/_next/image?url=%2Flogo.jpg&w=128&q=75",
+          name: "Gold & Silver Tracker",
+          url: "https://www.goldandsilvertracker.com/",
+          logo: "https://www.goldandsilvertracker.com/Goldsilver_logo.png",
           description,
         })}
       </script>

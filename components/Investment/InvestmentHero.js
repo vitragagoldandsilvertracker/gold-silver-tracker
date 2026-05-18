@@ -65,8 +65,8 @@ const InvestmentHero = () => {
             <p className="text-sm md:text-base mb-10">
               Discover the potential of Gold & Silver investments through our
               comprehensive range of investment options. From physical Gold & Silver to
-              ETFs and mining stocks, we offer diverse ways to incorporate this
-              precious metal into your portfolio.
+              ETFs and mining stocks, we offer diverse ways to incorporate these
+              precious metals into your portfolio.
             </p>
 
             <div className="text-xs text-gray-300">

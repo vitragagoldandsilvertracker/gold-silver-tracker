@@ -57,9 +57,9 @@ const PressRelease = ({ sliceVal }) => {
   if (loading) {
     return (
       <div className="border border-black/10 rounded-lg pl-2 pt-3 pr-3 pb-3">
-        <h1 className="text-[21px] cambay font-bold mb-5 border-b border-black/10 pb-2">
+        <h2 className="text-[21px] cambay font-bold mb-5 border-b border-black/10 pb-2">
           Gold & Silver Company Press Release
-        </h1>
+        </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-1 gap-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 gap-x-7">
@@ -90,9 +90,9 @@ const PressRelease = ({ sliceVal }) => {
   if (error) {
     return (
       <div>
-        <h1 className="text-[21px] cambay font-bold mb-5 border-b border-black/10 pb-2">
+        <h2 className="text-[21px] cambay font-bold mb-5 border-b border-black/10 pb-2">
           Gold & Silver Company Press Release
-        </h1>
+        </h2>
         <div className="text-center py-8 text-red-500">
           Error loading press releases: {error}
         </div>
@@ -103,9 +103,9 @@ const PressRelease = ({ sliceVal }) => {
   if (pressReleases.length === 0) {
     return (
       <div>
-        <h1 className="text-[21px] cambay font-bold mb-5 border-b border-black/10 pb-2">
+        <h2 className="text-[21px] cambay font-bold mb-5 border-b border-black/10 pb-2">
           Gold & Silver Company Press Release
-        </h1>
+        </h2>
         <div className="text-center py-8 text-gray-500">
           No press releases available at this time
         </div>
@@ -116,9 +116,9 @@ const PressRelease = ({ sliceVal }) => {
   return (
     <div className="border border-black/10 rounded-lg pl-2 pt-3 pr-3">
       {/* Heading */}
-      <h1 className="text-[21px] cambay font-bold mb-5 border-b border-black/10 pb-2">
+      <h2 className="text-[21px] cambay font-bold mb-5 border-b border-black/10 pb-2">
         Gold & Silver Company Press Release
-      </h1>
+      </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
         {/* Vertical List of Press Releases */}

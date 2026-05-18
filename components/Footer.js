@@ -18,10 +18,10 @@ const Footer = () => {
                 in One Place
               </h1>
               <p className="text-xs sm:text-[13px] md:text-[14.5px] mb-8 text-white/70 leading-5 font-normal">
-                With demand for clean energy on the rise, many investors are
-                looking for the next big opportunity in Gold & Silver. We're
-                here to help. Sign up to receive our best insights and updates
-                every week.
+                Gold and silver are driven by real forces — inflation hedging,
+                central bank demand, dollar weakness, and silver's growing
+                industrial and photovoltaic applications. Sign up to receive our
+                best market insights and gold-silver ratio analysis every week.
               </p>
             </div>
 

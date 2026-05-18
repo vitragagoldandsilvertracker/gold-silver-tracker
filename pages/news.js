@@ -19,7 +19,7 @@ const news = () => {
         title="Gold & Silver News - Latest Industry News, Stock Trends & Press Releases"
         description="Stay updated with the latest news on Gold & Silver, featuring company press releases, stock market trends, and real-time industry developments. Get accurate insights into financial updates, market movements, and key events shaping the Gold & Silver sector."
         keywords="Gold & Silver news,Company Press Releases, Stock news, Market news, Trending stock news,Company news"
-        canonicalUrl="https://musical-panda-75f15d.netlify.app/news/"
+        canonicalUrl="https://www.goldandsilvertracker.com/news/"
       />
       <Navbar />
       <div className="mt-14">

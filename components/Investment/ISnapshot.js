@@ -139,7 +139,7 @@ const ISnapshot = ({ stockData = [] }) => {
 
   return (
     <div className="px-3 md:px-12 py-5 md:py-5">
-      <h1 className="cambay text-[22px] sm:text-3xl font-semibold">Snapshot</h1>
+      <h2 className="cambay text-[22px] sm:text-3xl font-semibold">Snapshot</h2>
 
       <div className="mt-1 md:mt-5">
         <div className="w-full rounded-md bg-secondary/10 p-4 md:p-7">

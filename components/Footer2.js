@@ -11,8 +11,8 @@ const Footer2 = () => {
           {/* Added margin-bottom (mb-6) for spacing */}
           <Image
             className="" // Adjusting size for different screens
-            src="/logo.jpg"
-            alt="Logo"
+            src="/Goldsilver_logo.png"
+            alt="Gold & Silver Tracker"
             width={140} // Adjust as per image dimensions
             height={10}
             priority // Optimize loading
@@ -23,7 +23,7 @@ const Footer2 = () => {
         <div className="flex flex-wrap justify-center items-center space-x-2 text-sm md:text-base">
           <MdEmail className="text-lg md:text-xl" />{" "}
           {/* Icon size adjusts with screen */}
-          <span>info@pgmtracker.com</span>
+          <span>info@goldandsilvertracker.com</span>
         </div>
 
         {/* Divider */}

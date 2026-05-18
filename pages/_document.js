@@ -4,7 +4,7 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <link rel="icon" href="/logo.jpg" />
+        <link rel="icon" type="image/png" href="/Gold_and_silver_thumbnail.png" />
       </Head>
       <body className="antialiased">
         <Main />

@@ -58,71 +58,71 @@ const MostFollowedStocksTable = () => {
     most_watched: [
       {
         id: "1",
-        ticker: "ALB",
-        name: "Albemarle Corporation",
+        ticker: "GLD",
+        name: "SPDR Gold Shares ETF",
         current_price: 0,
         intraday_percentage: 0,
       },
       {
         id: "2",
-        ticker: "SQM",
-        name: "Sociedad Quimica y Minera",
+        ticker: "SLV",
+        name: "iShares Silver Trust ETF",
         current_price: 0,
         intraday_percentage: 0,
       },
       {
         id: "3",
-        ticker: "LTHM",
-        name: "Livent Corporation",
+        ticker: "NEM",
+        name: "Newmont Corporation",
         current_price: 0,
         intraday_percentage: 0,
       },
       {
         id: "4",
-        ticker: "LAC",
-        name: "Lithium Americas",
+        ticker: "GOLD",
+        name: "Barrick Gold Corporation",
         current_price: 0,
         intraday_percentage: 0,
       },
       {
         id: "5",
-        ticker: "GNENF",
-        name: "Ganfeng Lithium (ADR)",
+        ticker: "AEM",
+        name: "Agnico Eagle Mines",
         current_price: 0,
         intraday_percentage: 0,
       },
       {
         id: "6",
-        ticker: "RIO",
-        name: "Rio Tinto (Arcadium)",
+        ticker: "WPM",
+        name: "Wheaton Precious Metals",
         current_price: 0,
         intraday_percentage: 0,
       },
       {
         id: "7",
-        ticker: "LITM",
-        name: "Standard Lithium",
+        ticker: "FNV",
+        name: "Franco-Nevada Corporation",
         current_price: 0,
         intraday_percentage: 0,
       },
       {
         id: "8",
-        ticker: "SGML",
-        name: "Sigma Lithium",
+        ticker: "RGLD",
+        name: "Royal Gold Inc.",
         current_price: 0,
         intraday_percentage: 0,
       },
       {
         id: "9",
-        ticker: "LIT",
-        name: "Global X Lithium ETF",
+        ticker: "KGC",
+        name: "Kinross Gold Corporation",
         current_price: 0,
         intraday_percentage: 0,
       },
       {
         id: "10",
-        ticker: "LIXT",
-        name: "LITT Lithium Balance ETF",
+        ticker: "AG",
+        name: "First Majestic Silver Corp",
         current_price: 0,
         intraday_percentage: 0,
       },
@@ -130,71 +130,71 @@ const MostFollowedStocksTable = () => {
     north_american_leaders: [
       {
         id: "11",
-        ticker: "LIILIF",
-        name: "Lithium Ionic",
+        ticker: "MAG",
+        name: "MAG Silver Corp",
         current_price: 0,
         intraday_percentage: 0,
       },
       {
         id: "12",
-        ticker: "LIACF",
-        name: "Lithium Americas Corp",
+        ticker: "FSM",
+        name: "Fortuna Silver Mines",
         current_price: 0,
         intraday_percentage: 0,
       },
       {
         id: "13",
-        ticker: "E3M",
-        name: "E3 Lithium",
+        ticker: "EXK",
+        name: "Endeavour Silver Corp",
         current_price: 0,
         intraday_percentage: 0,
       },
       {
         id: "14",
-        ticker: "PMET",
-        name: "Patriot Battery Metals",
+        ticker: "SILV",
+        name: "SilverCrest Metals",
         current_price: 0,
         intraday_percentage: 0,
       },
       {
         id: "15",
-        ticker: "FL",
-        name: "Frontier Lithium",
+        ticker: "BTG",
+        name: "B2Gold Corp",
         current_price: 0,
         intraday_percentage: 0,
       },
       {
         id: "16",
-        ticker: "LITM",
-        name: "Standard Lithium",
+        ticker: "OR",
+        name: "Osisko Gold Royalties",
         current_price: 0,
         intraday_percentage: 0,
       },
       {
         id: "17",
-        ticker: "QDST",
-        name: "QuantumScape (batteries)",
+        ticker: "PAAS",
+        name: "Pan American Silver Corp",
         current_price: 0,
         intraday_percentage: 0,
       },
       {
         id: "18",
-        ticker: "EEMMF",
-        name: "Euro Manganese",
+        ticker: "CDE",
+        name: "Coeur Mining Inc.",
         current_price: 0,
         intraday_percentage: 0,
       },
       {
         id: "19",
-        ticker: "LI",
-        name: "Li Auto (EV)",
+        ticker: "HL",
+        name: "Hecla Mining Company",
         current_price: 0,
         intraday_percentage: 0,
       },
       {
         id: "20",
-        ticker: "LIACF",
-        name: "Lithium Americas",
+        ticker: "SA",
+        name: "Seabridge Gold Inc.",
         current_price: 0,
         intraday_percentage: 0,
       },
@@ -202,71 +202,71 @@ const MostFollowedStocksTable = () => {
     global_market_leaders: [
       {
         id: "21",
-        ticker: "PLS.AX",
-        name: "Pilbara Minerals",
+        ticker: "NST.AX",
+        name: "Northern Star Resources",
         current_price: 0,
         intraday_percentage: 0,
       },
       {
         id: "22",
-        ticker: "LTR.AX",
-        name: "Liontown Resources",
+        ticker: "EVN.AX",
+        name: "Evolution Mining",
         current_price: 0,
         intraday_percentage: 0,
       },
       {
         id: "23",
-        ticker: "MIN.AX",
-        name: "Mineral Resources",
+        ticker: "RRL.AX",
+        name: "Regis Resources",
         current_price: 0,
         intraday_percentage: 0,
       },
       {
         id: "24",
-        ticker: "IGO.AX",
-        name: "IGO Limited",
+        ticker: "SBM.AX",
+        name: "St Barbara Ltd",
         current_price: 0,
         intraday_percentage: 0,
       },
       {
         id: "25",
-        ticker: "CXO.AX",
-        name: "Core Lithium",
+        ticker: "CMM.AX",
+        name: "Capricorn Metals",
         current_price: 0,
         intraday_percentage: 0,
       },
       {
         id: "26",
-        ticker: "GL1.AX",
-        name: "Global Lithium Resources",
+        ticker: "RED.AX",
+        name: "Red 5 Limited",
         current_price: 0,
         intraday_percentage: 0,
       },
       {
         id: "27",
-        ticker: "VUL.AX",
-        name: "Vulcan Energy Resources",
+        ticker: "RSG.AX",
+        name: "Resolute Mining",
         current_price: 0,
         intraday_percentage: 0,
       },
       {
         id: "28",
-        ticker: "LKE.AX",
-        name: "Lake Resources",
+        ticker: "GOR.AX",
+        name: "Gold Road Resources",
         current_price: 0,
         intraday_percentage: 0,
       },
       {
         id: "29",
-        ticker: "AGY.AX",
-        name: "Argosy Minerals",
+        ticker: "OGC.AX",
+        name: "OceanaGold Corporation",
         current_price: 0,
         intraday_percentage: 0,
       },
       {
         id: "30",
-        ticker: "AKE.AX",
-        name: "Allkem Limited",
+        ticker: "SFR.AX",
+        name: "Sandfire Resources",
         current_price: 0,
         intraday_percentage: 0,
       },
@@ -328,8 +328,7 @@ const MostFollowedStocksTable = () => {
     <div
       key={stock.id || `${stock.ticker}-${index}`}
       className="flex justify-between items-center py-2 px-3 hover:bg-gray-50 cursor-pointer transition-colors duration-200 border-b border-gray-100 last:border-b-0"
-      onClick={() => handleStockClick(stock.ticker?.split(".")[0])}
-    >
+      onClick={() => handleStockClick(stock.ticker?.split(".")[0])}>
       <div className="flex-1">
         <div className="font-semibold text-sm text-accent">{stock.ticker}</div>
         <div className="text-xs text-gray-600 mt-0.5">{stock.name}</div>
@@ -339,8 +338,7 @@ const MostFollowedStocksTable = () => {
           {formatPrice(stock.current_price)}
         </div>
         <div
-          className={`text-xs ${getPercentageColor(stock.intraday_percentage)}`}
-        >
+          className={`text-xs ${getPercentageColor(stock.intraday_percentage)}`}>
           {formatPercentage(stock.intraday_percentage)}
         </div>
       </div>
@@ -387,7 +385,6 @@ const MostFollowedStocksTable = () => {
         <div className="mx-auto">
           <div className="flex justify-center items-center py-8">
             <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-accent"></div>
-            <span className="ml-3 text-gray-600">Loading stock data...</span>
           </div>
         </div>
       </div>
@@ -400,20 +397,17 @@ const MostFollowedStocksTable = () => {
       {isModalOpen && (
         <div
           className="fixed inset-0 flex items-center justify-center bg-black/50 z-50 transition-colors"
-          onClick={closeModal}
-        >
+          onClick={closeModal}>
           <div
             className="bg-white p-6 rounded-lg shadow-xl w-96 max-w-[90vw]"
-            onClick={(e) => e.stopPropagation()}
-          >
+            onClick={(e) => e.stopPropagation()}>
             <h2 className="text-lg font-bold mb-4 text-gray-800">
               Stock Not Available
             </h2>
             <p className="text-sm mb-6 text-gray-600">{errorMessage}</p>
             <button
               className="w-full bg-accent text-white py-2 px-4 rounded-md hover:bg-accent/90 transition-colors"
-              onClick={closeModal}
-            >
+              onClick={closeModal}>
               Close
             </button>
           </div>
@@ -425,7 +419,7 @@ const MostFollowedStocksTable = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {renderColumn(
             stocksData.most_watched,
-            "Most Watched Lithium",
+            "Most Watched Gold & Silver",
             "Live Performance",
           )}
           {renderColumn(
@@ -435,7 +429,7 @@ const MostFollowedStocksTable = () => {
           )}
           {renderColumn(
             stocksData.global_market_leaders,
-            "Australian Lithium Leaders",
+            "Australian Gold & Silver Leaders",
             "Live Tracking",
           )}
         </div>

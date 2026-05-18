@@ -24,10 +24,10 @@ const home = () => {
   return (
     <div>
       <SEO
-        title="Gold & Silver Tracker - Real-time News, Prices & Analysis"
-        description="Stay ahead with real-time Gold & Silver market news, price updates, and in-depth analysis. Get accurate insights into the gold and silver market trends."
+        title="Gold & Silver Price Today: Live Charts & Market Data"
+        description="Track live gold and silver spot prices, futures, mining stocks, and insider transactions. Real-time precious metals data — gold-silver ratio, central bank demand, ETF holdings, and more."
         keywords="Gold prices, Silver prices, Gold & Silver news, Gold & Silver market analysis, Precious metals, Gold trading, Silver trading, Gold & Silver updates, Gold & Silver investment, Real-time precious metals updates, investment"
-        canonicalUrl="https://musical-panda-75f15d.netlify.app/"
+        canonicalUrl="https://www.goldandsilvertracker.com/"
       />
 
       <Navbar />
@@ -44,15 +44,15 @@ const home = () => {
           {/* 1 */}
           <div className="w-full grid grid-cols-1 md:grid-cols-9 gap-4 md:gap-x-6 ">
             <div className="md:col-span-3 border border-black/10 rounded-lg pl-2 pt-3 pr-3 ">
-              <h1 className="text-[21px] cambay font-bold mb-3 border-b border-black/10 pb-1">
+              <h2 className="text-[21px] cambay font-bold mb-3 border-b border-black/10 pb-1">
                 Gold & Silver Price Chart
-              </h1>
+              </h2>
               <TVLithiumCFD />
             </div>
             <div className="md:col-span-6 border border-black/10 rounded-lg pl-2 pt-3 pb-3 pr-3 ">
-              <h1 className="text-[21px] cambay font-bold mb-3 border-b border-black/10 pb-1">
+              <h2 className="text-[21px] cambay font-bold mb-3 border-b border-black/10 pb-1">
                 Prices
-              </h1>
+              </h2>
               <div className="border border-black/10 rounded-lg">
                 <DirectHomeLithiumPrice />
               </div>
@@ -63,9 +63,9 @@ const home = () => {
           <div className="grid grid-cols-1 md:grid-cols-9 md:gap-4 md:gap-x-6 md:w-full ">
             <div className="md:col-span-9 border border-black/10 rounded-lg pl-2 pt-3 pr-3">
               <div className="flex justify-between items-center mb-3 border-b border-black/10 pb-1">
-                <h1 className="text-[21px] cambay font-bold">
-                  Recent Canadian Company Insider Transactions
-                </h1>
+                <h2 className="text-[21px] cambay font-bold">
+                  Gold & Silver Company Insider Transactions
+                </h2>
                 <a
                   href="/investments"
                   className="text-sm text-accent hover:text-accent/80 transition-colors"
@@ -83,9 +83,9 @@ const home = () => {
 
         <div className="w-full lg:w-[24%] flex flex-col space-y-6 xl:space-y-2 2xl:space-y-6">
           <div className="border border-black/10 rounded-lg pl-2 pt-3 pr-3">
-            <h1 className="text-[21px] cambay font-bold mb-3 border-b border-black/10 pb-1">
+            <h2 className="text-[21px] cambay font-bold mb-3 border-b border-black/10 pb-1">
               Gold & Silver Futures
-            </h1>
+            </h2>
             <TVLithium />
           </div>
 

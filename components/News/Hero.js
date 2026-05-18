@@ -65,7 +65,8 @@ const Hero = () => {
               <p className="inline-block px-2 py-1 rounded-full text-xs font-semibold bg-accent mb-4">
                 Gold & Silver News
               </p>
-              <h1 className="text-2xl lg:text-4xl font-bold cambay">Loading latest news...</h1>
+              <h1 className="text-2xl lg:text-4xl font-bold cambay">Gold & Silver News</h1>
+              <p className="text-sm mt-4 text-white/60 animate-pulse">Fetching latest stories...</p>
             </div>
           </div>
         </div>
@@ -73,25 +74,7 @@ const Hero = () => {
     );
   }
 
-  if (error) {
-    return (
-      <div className="relative bg-black w-full py-12">
-        <div className="max-w-7xl mx-auto px-4 relative z-10">
-          <div className="relative flex items-center justify-center overflow-hidden rounded-lg" style={{ height: "350px" }}>
-            <div className="text-white text-center">
-              <p className="inline-block px-2 py-1 rounded-full text-xs font-semibold bg-red-500 mb-4">
-                Error
-              </p>
-              <h1 className="text-2xl lg:text-4xl font-bold cambay">Failed to load news</h1>
-              <p className="text-base mt-4">{error}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  if (news.length === 0) {
+  if (error || news.length === 0) {
     return (
       <div className="relative bg-black w-full py-12">
         <div className="max-w-7xl mx-auto px-4 relative z-10">
@@ -100,7 +83,7 @@ const Hero = () => {
               <p className="inline-block px-2 py-1 rounded-full text-xs font-semibold bg-accent mb-4">
                 Gold & Silver News
               </p>
-              <h1 className="text-2xl lg:text-4xl font-bold cambay">No news available</h1>
+              <h1 className="text-2xl lg:text-4xl font-bold cambay">Gold & Silver News</h1>
             </div>
           </div>
         </div>
