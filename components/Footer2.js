@@ -26,6 +26,21 @@ const Footer2 = () => {
           <span>info@goldandsilvertracker.com</span>
         </div>
 
+        {/* Sister Sites */}
+        <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs md:text-sm">
+          <a href="https://www.lithiumtracker.com/" target="_blank" rel="noopener noreferrer" className="hover:underline opacity-80 hover:opacity-100">Lithium Tracker</a>
+          <span className="opacity-40">|</span>
+          <a href="https://www.coppertracker.com/" target="_blank" rel="noopener noreferrer" className="hover:underline opacity-80 hover:opacity-100">Copper Tracker</a>
+          <span className="opacity-40">|</span>
+          <a href="https://www.nickelmetaltracker.com/" target="_blank" rel="noopener noreferrer" className="hover:underline opacity-80 hover:opacity-100">Nickel Metal Tracker</a>
+          <span className="opacity-40">|</span>
+          <a href="https://www.uraniumtracker.com/" target="_blank" rel="noopener noreferrer" className="hover:underline opacity-80 hover:opacity-100">Uranium Tracker</a>
+          <span className="opacity-40">|</span>
+          <a href="https://www.pgmtracker.com/" target="_blank" rel="noopener noreferrer" className="hover:underline opacity-80 hover:opacity-100">PGM Tracker</a>
+          <span className="opacity-40">|</span>
+          <a href="https://www.goldandsilvertracker.com/" target="_blank" rel="noopener noreferrer" className="hover:underline opacity-80 hover:opacity-100">Gold & Silver Tracker</a>
+        </div>
+
         {/* Divider */}
         <div className="w-full md:w-2/3 lg:w-1/2 mx-auto border-t border-white/40 my-4"></div>
 
