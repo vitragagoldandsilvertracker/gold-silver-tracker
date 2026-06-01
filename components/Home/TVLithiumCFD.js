@@ -7,7 +7,6 @@ function GoldMiniChart() {
   const containerRef = useRef(null);
 
   useEffect(() => {
-    // Inject the module script into <head> once across the page
     if (!document.getElementById(SCRIPT_ID)) {
       const script = document.createElement("script");
       script.id = SCRIPT_ID;
@@ -16,12 +15,10 @@ function GoldMiniChart() {
       document.head.appendChild(script);
     }
 
-    // Set the custom element markup directly — browser will upgrade it
-    // once the module script defines the <tv-mini-chart> element
     if (containerRef.current) {
       containerRef.current.innerHTML = `
         <tv-mini-chart
-          symbol="COMEX:GC1!"
+          symbol="TVC:GOLD"
           width="100%"
           height="240"
           locale="en"
