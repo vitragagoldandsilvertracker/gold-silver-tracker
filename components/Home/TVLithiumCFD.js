@@ -1,39 +1,41 @@
 import React, { useEffect, useRef, memo } from "react";
 
+const SCRIPT_ID = "tv-mini-chart-module";
+const SCRIPT_SRC = "https://widgets.tradingview-widget.com/w/en/tv-mini-chart.js";
+
 function GoldMiniChart() {
-  const containerRef = useRef();
+  const containerRef = useRef(null);
 
   useEffect(() => {
-    if (!containerRef.current) return;
-
-    // Inject the module script once
-    if (!document.getElementById("tv-mini-chart-script")) {
+    // Inject the module script into <head> once across the page
+    if (!document.getElementById(SCRIPT_ID)) {
       const script = document.createElement("script");
-      script.id = "tv-mini-chart-script";
+      script.id = SCRIPT_ID;
       script.type = "module";
-      script.src =
-        "https://widgets.tradingview-widget.com/w/en/tv-mini-chart.js";
+      script.src = SCRIPT_SRC;
       document.head.appendChild(script);
     }
 
-    // Build the web component element
-    containerRef.current.innerHTML = "";
-    const widget = document.createElement("tv-mini-chart");
-    widget.setAttribute("symbol", "COMEX:GC1!");
-    widget.setAttribute("width", "100%");
-    widget.setAttribute("height", "240");
-    widget.setAttribute("locale", "en");
-    widget.setAttribute("color-theme", "light");
-    widget.setAttribute("trend-line-color", "rgba(201,168,76,1)");
-    widget.setAttribute("under-line-color", "rgba(201,168,76,0.15)");
-    widget.setAttribute("is-transparent", "false");
-    widget.setAttribute("auto-size", "true");
-    containerRef.current.appendChild(widget);
+    // Set the custom element markup directly — browser will upgrade it
+    // once the module script defines the <tv-mini-chart> element
+    if (containerRef.current) {
+      containerRef.current.innerHTML = `
+        <tv-mini-chart
+          symbol="COMEX:GC1!"
+          width="100%"
+          height="240"
+          locale="en"
+          color-theme="light"
+          trend-line-color="rgba(201,168,76,1)"
+          under-line-color="rgba(201,168,76,0.15)"
+          is-transparent="false"
+          auto-size="true"
+        ></tv-mini-chart>
+      `;
+    }
   }, []);
 
-  return (
-    <div ref={containerRef} style={{ width: "100%", minHeight: "240px" }} />
-  );
+  return <div ref={containerRef} style={{ width: "100%", minHeight: "240px" }} />;
 }
 
 export default memo(GoldMiniChart);
