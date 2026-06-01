@@ -1,61 +1,39 @@
-// TradingViewWidget.jsx
 import React, { useEffect, useRef, memo } from "react";
 
-function LithiumCFDTradingViewWidget() {
-  const container = useRef();
+function GoldMiniChart() {
+  const containerRef = useRef();
 
   useEffect(() => {
-    const script = document.createElement("script");
-    script.src =
-      "https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js";
-    script.type = "text/javascript";
-    script.async = true;
-    script.innerHTML = `
-        {
-          "autosize": true,
-          "symbol": "NASDAQ:NIKL",
-          "interval": "D",
-          "timezone": "Etc/UTC",
-          "theme": "light",
-          "style": "1",
-          "locale": "en",
-          "enable_publishing": false,
-          "hide_top_toolbar": false,
-          "hide_legend": false,
-          "allow_symbol_change": true,
-          "save_image": false,
-          "calendar": false,
-          "hide_volume": false,
-          "support_host": "https://www.tradingview.com"
-        }`;
+    if (!containerRef.current) return;
 
-    if (container.current) {
-      container.current.innerHTML = "";
-      container.current.appendChild(script);
+    // Inject the module script once
+    if (!document.getElementById("tv-mini-chart-script")) {
+      const script = document.createElement("script");
+      script.id = "tv-mini-chart-script";
+      script.type = "module";
+      script.src =
+        "https://widgets.tradingview-widget.com/w/en/tv-mini-chart.js";
+      document.head.appendChild(script);
     }
+
+    // Build the web component element
+    containerRef.current.innerHTML = "";
+    const widget = document.createElement("tv-mini-chart");
+    widget.setAttribute("symbol", "COMEX:GC1!");
+    widget.setAttribute("width", "100%");
+    widget.setAttribute("height", "240");
+    widget.setAttribute("locale", "en");
+    widget.setAttribute("color-theme", "light");
+    widget.setAttribute("trend-line-color", "rgba(201,168,76,1)");
+    widget.setAttribute("under-line-color", "rgba(201,168,76,0.15)");
+    widget.setAttribute("is-transparent", "false");
+    widget.setAttribute("auto-size", "true");
+    containerRef.current.appendChild(widget);
   }, []);
 
   return (
-    <div
-      className="tradingview-widget-container"
-      style={{ height: "272px", width: "100%" }}
-    >
-      <div
-        className="tradingview-widget-container__widget"
-        ref={container}
-        style={{ height: "calc(100% - 32px)", width: "100%" }}
-      ></div>
-      <div className="tradingview-widget-copyright">
-        <a
-          href="https://www.tradingview.com/"
-          rel="noopener nofollow"
-          target="_blank"
-        >
-          <span className="blue-text">Track all markets on TradingView</span>
-        </a>
-      </div>
-    </div>
+    <div ref={containerRef} style={{ width: "100%", minHeight: "240px" }} />
   );
 }
 
-export default memo(LithiumCFDTradingViewWidget);
+export default memo(GoldMiniChart);
