@@ -120,7 +120,7 @@ const investments = ({ stockData }) => {
       <Navbar />
       
       {/* Investment Hero Banner */}
-      <div className="pt-[80px]">
+      <div className="pt-[116px]">
         <InvestmentHero />
       </div>
 

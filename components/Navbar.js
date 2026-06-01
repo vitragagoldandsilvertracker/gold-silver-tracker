@@ -206,6 +206,15 @@ const Navbar = () => {
     return null;
   }
 
+  const sisterSites = [
+    { name: "Lithium", dot: "#22c55e", url: "https://www.lithiumtracker.com/" },
+    { name: "Copper", dot: "#ef4444", url: "https://www.coppertracker.com/" },
+    { name: "Nickel", dot: "#60a5fa", url: "https://www.nickelmetaltracker.com/" },
+    { name: "Uranium", dot: "#facc15", url: "https://www.uraniumtracker.com/" },
+    { name: "PGM", dot: "#a78bfa", url: "https://www.pgmtracker.com/" },
+    { name: "Gold & Silver", dot: "#C9A84C", url: null, active: true },
+  ];
+
   return (
     <div className="bg-white border-b fixed top-0 left-0 w-full z-50">
       <div className="container mx-auto px-4 xl:px-10 py-5 flex justify-between items-center">
@@ -269,6 +278,45 @@ const Navbar = () => {
             }`}
             onClick={() => setMenuOpen(true)}
           />
+        </div>
+      </div>
+
+      {/* Sister Sites Network Bar */}
+      <div className="border-t border-black/8 bg-white">
+        <div className="container mx-auto px-4 xl:px-10 py-1.5 flex items-center gap-3 overflow-x-auto scrollbar-hide">
+          <span className="text-[10px] font-semibold tracking-widest text-black/40 uppercase shrink-0">
+            Network
+          </span>
+          <div className="flex items-center gap-1.5 flex-nowrap">
+            {sisterSites.map((site) =>
+              site.active ? (
+                <span
+                  key={site.name}
+                  className="flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-black text-white shrink-0"
+                >
+                  <span
+                    className="w-2 h-2 rounded-full shrink-0"
+                    style={{ backgroundColor: site.dot }}
+                  />
+                  {site.name} ✓
+                </span>
+              ) : (
+                <a
+                  key={site.name}
+                  href={site.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium text-black/60 hover:bg-black/5 transition-colors shrink-0"
+                >
+                  <span
+                    className="w-2 h-2 rounded-full shrink-0"
+                    style={{ backgroundColor: site.dot }}
+                  />
+                  {site.name} ↗
+                </a>
+              )
+            )}
+          </div>
         </div>
       </div>
 

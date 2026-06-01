@@ -22,7 +22,7 @@ const news = () => {
         canonicalUrl="https://www.goldandsilvertracker.com/news/"
       />
       <Navbar />
-      <div className="mt-14">
+      <div className="mt-[126px]">
         <Hero />
       </div>
 
