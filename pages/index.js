@@ -45,7 +45,7 @@ const home = () => {
           <div className="w-full grid grid-cols-1 md:grid-cols-9 gap-4 md:gap-x-6 ">
             <div className="md:col-span-3 border border-black/10 rounded-lg pl-2 pt-3 pr-3 overflow-hidden">
               <h2 className="text-[21px] cambay font-bold mb-3 border-b border-black/10 pb-1">
-                Gold & Silver Price Chart
+                Gold Price Chart
               </h2>
               <TVLithiumCFD />
             </div>
@@ -84,7 +84,7 @@ const home = () => {
         <div className="w-full lg:w-[24%] flex flex-col space-y-6 xl:space-y-2 2xl:space-y-6">
           <div className="border border-black/10 rounded-lg pl-2 pt-3 pr-3 pb-3 overflow-hidden">
             <h2 className="text-[21px] cambay font-bold mb-3 border-b border-black/10 pb-1">
-              Gold & Silver Futures
+              Silver price chart
             </h2>
             <TVLithium />
           </div>

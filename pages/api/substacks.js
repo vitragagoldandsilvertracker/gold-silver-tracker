@@ -26,6 +26,10 @@ const GOLD_SILVER_SUBSTACKS = [
     name: "Gold and Geopolitics",
     rss: "https://no01.substack.com/feed",
   },
+  {
+    name: "Jensen's Precious Metals & Markets",
+    rss: "https://jensendavid.substack.com/feed",
+  },
 ];
 
 // Parse a single RSS XML string into post objects
