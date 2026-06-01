@@ -82,7 +82,7 @@ const home = () => {
         </div>
 
         <div className="w-full lg:w-[24%] flex flex-col space-y-6 xl:space-y-2 2xl:space-y-6">
-          <div className="border border-black/10 rounded-lg pl-2 pt-3 pr-3 overflow-hidden">
+          <div className="border border-black/10 rounded-lg pl-2 pt-3 pr-3 pb-3 overflow-hidden">
             <h2 className="text-[21px] cambay font-bold mb-3 border-b border-black/10 pb-1">
               Gold & Silver Futures
             </h2>
