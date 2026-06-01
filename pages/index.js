@@ -31,7 +31,7 @@ const home = () => {
       />
 
       <Navbar />
-      <div className="mt-[126px]">
+      <div className="mt-[120px]">
         <StocksMarquee />
       </div>
 
