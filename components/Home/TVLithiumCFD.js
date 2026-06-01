@@ -22,8 +22,9 @@ function GoldSymbolOverview() {
       "https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js";
     script.async = true;
     script.innerHTML = JSON.stringify({
-      symbols: [["Gold", "TVC:GOLD|1D"]],
+      symbols: [["Gold", "TVC:GOLD|1M"]],
       dateRanges: ["1d|1", "1m|30", "3m|60", "12m|1D", "60m|1W", "all|1M"],
+      defaultColumn: 5,
       chartType: "area",
       lineWidth: 2,
       lineType: 0,
@@ -64,7 +65,7 @@ function GoldSymbolOverview() {
     <div
       className="tradingview-widget-container"
       ref={containerRef}
-      style={{ width: "100%", height: "272px" }}
+      style={{ width: "100%", height: "260px" }}
     />
   );
 }
