@@ -22,6 +22,10 @@ const GOLD_SILVER_SUBSTACKS = [
     name: "HGM Silver Gold",
     rss: "https://monetaryreset.substack.com/feed",
   },
+  {
+    name: "Gold and Geopolitics",
+    rss: "https://no01.substack.com/feed",
+  },
 ];
 
 // Parse a single RSS XML string into post objects

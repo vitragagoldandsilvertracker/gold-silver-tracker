@@ -78,7 +78,7 @@ const Substacks = () => {
 
       {!loading && !error && posts.length > 0 && (
         <div className="space-y-4">
-          {posts.slice(0, 5).map((post, i) => (
+          {posts.slice(0, 6).map((post, i) => (
             <a
               key={i}
               href={post.url}
