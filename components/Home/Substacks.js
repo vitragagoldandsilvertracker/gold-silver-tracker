@@ -2,189 +2,125 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { SUBSTACKS } from "@/src/api/lithiumAPI";
 
+const FALLBACK_IMG = "/Goldsilver_logo.png";
+
+const formatDate = (dateString) => {
+  if (!dateString) return "";
+  try {
+    return new Date(dateString).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    });
+  } catch {
+    return "";
+  }
+};
+
+// Skeleton loader row
+const SkeletonRow = () => (
+  <div className="flex items-start justify-between gap-3 pb-4 border-b border-gray-100 last:border-b-0 animate-pulse">
+    <div className="flex flex-col flex-grow gap-2">
+      <div className="h-3 w-32 bg-gray-200 rounded" />
+      <div className="h-4 w-4/5 bg-gray-200 rounded" />
+      <div className="h-3 w-full bg-gray-200 rounded" />
+      <div className="h-3 w-5/6 bg-gray-200 rounded" />
+      <div className="h-3 w-20 bg-gray-200 rounded mt-1" />
+    </div>
+    <div className="w-[72px] h-[68px] bg-gray-200 rounded-lg flex-shrink-0" />
+  </div>
+);
+
 const Substacks = () => {
-  const [substackPosts, setSubstackPosts] = useState([]);
+  const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
-  // Function to truncate content
-  const truncateContent = (content) => {
-    if (!content) return "";
-    const cleanContent = content.replace(/<[^>]*>/g, "");
-    const words = cleanContent.split(/\s+/).slice(0, 15);
-    return words.length > 0 ? `${words.join(" ")}...` : "";
-  };
-
-  // Intelligent title truncation function
-  const formatTitle = (title) => {
-    if (!title) return "Untitled";
-    if (title.length <= 70) return title;
-    return `${title.substring(0, 70)}...`;
-  };
-
-  // Format date function
-  const formatDate = (dateString) => {
-    if (!dateString) return "";
-    try {
-      return new Date(dateString).toLocaleDateString("en-US", {
-        year: "numeric",
-        month: "short",
-        day: "numeric",
-      });
-    } catch (error) {
-      console.warn("Invalid date format:", dateString);
-      return "";
-    }
-  };
 
   useEffect(() => {
     const fetchSubstacks = async () => {
       try {
-        console.log("Fetching substacks from:", SUBSTACKS);
         const response = await fetch(SUBSTACKS);
-
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         const data = await response.json();
-        console.log("Substacks data:", data);
-
-        const formattedPosts = Array.isArray(data)
-          ? data.map((post) => ({
-              id: post.id || Math.random().toString(36).substr(2, 9),
-              title: formatTitle(post.title) || "Untitled Substack Post",
-              url: post.url || "#",
-              content: truncateContent(post.content),
-              subtitle: post.subtitle || "",
-              image:
-                post.image_url ||
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM4sEG5g9GFcy4SUxbzWNzUTf1jMISTDZrTw&s",
-              date: formatDate(post.date || post.created_at),
-            }))
-          : [];
-
-        setSubstackPosts(formattedPosts);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching substacks:", error);
-        setError(error.message);
-        setSubstackPosts([]);
+        setPosts(Array.isArray(data) ? data : []);
+      } catch (err) {
+        setError(err.message);
+      } finally {
         setLoading(false);
       }
     };
-
     fetchSubstacks();
   }, []);
 
-  if (loading) {
-    return (
-      <div className="border border-black/10 rounded-lg pl-2 pt-3 pr-3">
-        <h2 className="flex items-center text-[19px] md:text-[21px] font-bold cambay border-b border-gray-300 pb-2 mb-3">
-          <div className="h-4 w-48 bg-gray-200 rounded animate-pulse" />
-        </h2>
-        <div className="space-y-3">
-          {Array.from({ length: 4 }).map((_, index) => (
-            <div
-              key={index}
-              className="flex items-start justify-between space-x-3.5 pb-6 border-b border-gray-100 last:border-b-0 animate-pulse"
-            >
-              <div className="flex flex-col flex-grow gap-2">
-                <div className="h-3 w-14 bg-gray-200 rounded" />
-                <div className="h-4 w-4/5 bg-gray-200 rounded mt-1" />
-                <div className="h-4 w-3/5 bg-gray-200 rounded" />
-                <div className="h-3 w-full bg-gray-200 rounded mt-1" />
-                <div className="h-3 w-5/6 bg-gray-200 rounded" />
-                <div className="h-3 w-20 bg-gray-200 rounded mt-1" />
-              </div>
-
-              <div className="flex-shrink-0">
-                <div className="w-[80px] h-[75px] bg-gray-200 rounded-md" />
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div>
-        <h2 className="flex items-center text-[19px] md:text-[21px] font-bold cambay border-b border-gray-300 pb-1 mb-3">
-          Gold & Silver Substacks
-        </h2>
-        <div className="text-center py-8 text-red-500">
-          Error loading substacks: {error}
-        </div>
-      </div>
-    );
-  }
-
-  if (substackPosts.length === 0) {
-    return (
-      <div>
-        <h2 className="flex items-center text-[19px] md:text-[21px] font-bold cambay border-b border-gray-300 pb-1 mb-3">
-          Gold & Silver Substacks
-        </h2>
-        <div className="text-center py-8 text-gray-500">
-          No Substack posts available at this time
-        </div>
-      </div>
-    );
-  }
-
   return (
-    <div className="border border-black/10 rounded-lg pl-2 pt-3 pr-3">
-      <h2 className="flex items-center text-[19px] md:text-[21px] font-bold cambay border-b border-gray-300 pb-1 mb-3">
+    <div className="border border-black/10 rounded-lg p-3">
+      <h2 className="text-[19px] md:text-[21px] cambay font-bold border-b border-gray-200 pb-2 mb-3">
         Gold & Silver Substacks
       </h2>
-      <div className="space-y-6">
-        {substackPosts.slice(0, 4).map((post) => (
-          <Link
-            key={post.id}
-            href={post.url}
-            target="_blank"
-            className="flex items-start justify-between space-x-4 pb-4 cursor-pointer group border-b border-gray-100 last:border-b-0"
-          >
-            <div className="flex flex-col flex-grow">
-              <p className="text-xs font-semibold text-accent mb-1">Substack</p>
 
-              <h3 className="text-md font-bold text-gray-800 mt-1 group-hover:text-accent transition-colors">
-                {post.title}
-              </h3>
+      {loading && (
+        <div className="space-y-4">
+          {Array.from({ length: 4 }).map((_, i) => <SkeletonRow key={i} />)}
+        </div>
+      )}
 
-              {post.content && (
-                <p className="text-sm text-gray-600 mt-1 line-clamp-2">
-                  {post.content}
+      {!loading && error && (
+        <p className="text-sm text-red-500 py-4 text-center">
+          Unable to load substacks. Please try again later.
+        </p>
+      )}
+
+      {!loading && !error && posts.length === 0 && (
+        <p className="text-sm text-gray-500 py-4 text-center">
+          No posts available at this time.
+        </p>
+      )}
+
+      {!loading && !error && posts.length > 0 && (
+        <div className="space-y-4">
+          {posts.slice(0, 5).map((post, i) => (
+            <a
+              key={i}
+              href={post.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-start justify-between gap-3 pb-4 border-b border-gray-100 last:border-b-0 group cursor-pointer"
+            >
+              {/* Text content */}
+              <div className="flex flex-col flex-grow min-w-0">
+                <p className="text-xs font-semibold text-accent mb-0.5 truncate">
+                  {post.source}
                 </p>
-              )}
+                <h3 className="text-sm font-bold text-gray-900 leading-snug group-hover:text-accent transition-colors line-clamp-2">
+                  {post.title}
+                </h3>
+                {post.description && (
+                  <p className="text-xs text-gray-500 mt-1 line-clamp-2 leading-relaxed">
+                    {post.description}
+                  </p>
+                )}
+                {post.date && (
+                  <span className="text-xs text-gray-400 mt-1.5">
+                    {formatDate(post.date)}
+                  </span>
+                )}
+              </div>
 
-              {post.date && (
-                <span className="text-xs text-gray-500 mt-2">{post.date}</span>
-              )}
-            </div>
-
-            <div className="flex-shrink-0">
-              <div className="w-[80px] h-[75px] overflow-hidden rounded-md">
+              {/* Thumbnail */}
+              <div className="flex-shrink-0 w-[72px] h-[68px] rounded-lg overflow-hidden bg-gray-100">
                 <img
-                  src={post.image}
-                  alt={
-                    post.title
-                      ? post.title.substring(0, 10) + "..."
-                      : "Substack post"
-                  }
-                  className="object-cover w-full h-full group-hover:scale-105 transition-transform"
+                  src={post.image || FALLBACK_IMG}
+                  alt={post.title?.slice(0, 30) || "Substack post"}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
                   onError={(e) => {
-                    e.target.src =
-                      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM4sEG5g9GFcy4SUxbzWNzUTf1jMISTDZrTw&s";
+                    e.target.src = FALLBACK_IMG;
                   }}
                 />
               </div>
-            </div>
-          </Link>
-        ))}
-      </div>
+            </a>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
