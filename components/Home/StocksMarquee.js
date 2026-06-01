@@ -124,10 +124,6 @@ const StocksMarquee = () => {
     script.async = true;
     script.innerHTML = JSON.stringify({
       symbols: [
-        { description: "", proName: "COMEX:GC1!" },    // Gold Futures
-        { description: "", proName: "COMEX:SI1!" },    // Silver Futures
-        { description: "", proName: "NYSE:GLD" },      // SPDR Gold Shares ETF
-        { description: "", proName: "NYSE:SLV" },      // iShares Silver Trust ETF
         { description: "", proName: "NYSE:NEM" },      // Newmont - gold mining
         { description: "", proName: "NYSE:GOLD" },     // Barrick Gold
         { description: "", proName: "NYSE:AEM" },      // Agnico Eagle Mines
